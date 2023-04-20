@@ -1,0 +1,10 @@
+
+NKTPDLL release notes
+    1.2.7   Corrected a minor bug not always allowing for maximum retries.
+    1.2.6   Added a new function to get the module System Type (deviceGetSysType).
+    1.2.5   Corrected a bug in the network port shutdown.
+    1.2.4   Enabled devicelogging in livemode.
+    1.2.3   Restructured the startup function, from early init to late init.
+    1.2.2   Corrected openPorts function, returning wrong status
+    1.2.1   Initial release.
+-------------------------------------------------------------------------------
