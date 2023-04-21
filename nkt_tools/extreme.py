@@ -5,7 +5,7 @@ import NKTP_DLL as nkt
 class Extreme:
     def __init__(self):
         print('init class')
-        self.portname = 'COM27'
+        self.portname = 'COM4'
         self.module_address = 15
 
 
