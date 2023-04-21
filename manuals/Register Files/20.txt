@@ -1,0 +1,25 @@
+Module type	20
+Koheras AdjustiK/BoostiK (K81-1 to K83-1)
+#
+Readings			
+#				
+Controls			
+23	Setpoint	mA or 0.01 mW	U16	1
+25	FL setpoint	°C or nm	U16	0.001
+28	Wavelength offset	nm	U16	1
+30	Emission off/on	Bolean	U8	1
+65	Module serialnumber		string
+#				
+Status bits	66
+0	Emission
+1	Remote
+2	Interlock
+3	Key switch
+4	Relay
+5	General system enable
+6	
+7	System disabled by module
+#
+Error code	67
+0	No error
+#	

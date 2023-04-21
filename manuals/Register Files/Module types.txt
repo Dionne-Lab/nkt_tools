@@ -1,0 +1,16 @@
+Module type	Description
+0	N/A
+20	Koheras AdjustiK/BoostiK (K81-1 to K83-1)
+21	Koheras BasiK Module (K80-1)
+33	Koheras BASIK Module (K1x2)
+34	Koheras ADJUSTIK/ACOUSTIK (K822 / K852)
+36	Koheras BASIK MIKRO Module (K0x2)
+60	SuperK Extreme (S4x2), Fianium
+61	SuperK Extreme Front panel
+66	RF Driver (A901) & SuperK Select (A203)
+67	SuperK SELECT (A203)
+68	SuperK VARIA (A301)
+6B	Extend UV (A351)
+70	BoostiK OEM Amplifier (N83)
+74	SuperK COMPACT (S024)
+7D	SuperK EVO (S2x1)

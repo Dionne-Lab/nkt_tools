@@ -1,0 +1,13 @@
+Module type	0
+No module detected
+#
+Readings			
+#				
+Controls			
+#				
+Parameters
+#
+Status bits	66
+#
+Error code	67
+#	

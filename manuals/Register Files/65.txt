@@ -1,0 +1,20 @@
+Module type	65
+SuperK Booster 2011
+#
+Readings			
+80	Booster emission runtime	s	U32	1
+#				
+Controls			
+#				
+Status bits	66
+0	Emission
+1	Interlock off
+2	Interlock loop in
+3	Interlock loop out
+4	Module disabled
+5	Supply voltage low
+6	Module temp range
+7	Heat sink temp high
+#
+Error code	67
+#

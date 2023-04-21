@@ -1,0 +1,12 @@
+Module type	61
+SuperK Front panel 2011
+#
+Readings			
+72	Display text	-	string
+#				
+Controls			
+3D	Panel lock	Byte	U8	1
+8D	Error flash	0=off;1=on	U8	1
+#
+Error code	67
+#	

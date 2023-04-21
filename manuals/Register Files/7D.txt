@@ -1,0 +1,59 @@
+Module type	7D
+S2x1 SuperK EVO
+#
+Readings			
+17	Base temperature	°C	I16	0.1
+1D	24V supply	V	U16	0.001
+94	External power feedback	V	U16	0.001
+#				
+Controls			
+21	Output power setpoint	%	U16	0.1
+27	Current setpoint	%	U16	0.1
+30	Emission off/on	(0-2)	U8	1
+31	Setup bits	-	U8	1
+32	Interlock	-	H16	1
+36	Watchdog timer	s	U8	1
+3B	NIM delay	-	U16	1
+65	Module serial number		string
+8D	User area		string	
+B0.0	IP address (0)		U8	1
+B0.1	IP address (1)		U8	1
+B0.2	IP address (2)		U8	1
+B0.3	IP address (3)		U8	1
+B1.0	Gateway (0)		U8	1
+B1.1	Gateway (1)		U8	1
+B1.2	Gateway (2)		U8	1
+B1.3	Gateway (3)		U8	1
+B2.0	Subnet mask (0)		U8	1
+B2.1	Subnet mask (1)		U8	1
+B2.2	Subnet mask (2)		U8	1
+B2.3	Subnet mask (3)		U8	1
+B3.0	MAC address (0)		H8	1
+B3.1	MAC address (1)		H8	1
+B3.2	MAC address (2)		H8	1
+B3.3	MAC address (3)		H8	1
+B3.4	MAC address (4)		H8	1
+B3.5	MAC address (5)		H8	1
+B4	Port		U16	1
+#				
+Status bits	66
+0	Emission
+1	Interlock off
+2	Interlock power failure
+3	Remote interlock
+4	-
+5	Supply voltage low
+6	Module temp range
+7	-
+8	-
+9	-
+10	-
+11	-
+12	-
+13	-
+14	Log error
+15	Error code present
+#
+Error code	67
+0	No error
+#

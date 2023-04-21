@@ -1,0 +1,37 @@
+Module type	70
+BoostiK OEM amplifier (N83)
+#
+Readings			
+10	Heat sink temperature #1	°C	I16	0.1
+12	Supply voltage	V	U16	0.001
+15	Output power	W	U16	0.001
+17	Amplifier temperature	°C	I16	0.1
+19	Pump2 current	A	U16	0.001
+#				
+Controls			
+21	Pump2 current setpoint	A	U16	0.001
+22	Output power setpoint	dBm	I16	0.1
+30	State	0=Off;1=Current;2=Power	U8	1
+65	Module serial number		string
+#				
+Status bits	66
+0	Emission
+1	Interlock off
+2	Reserved
+3	Reserved
+4	Module disabled
+5	Supply voltage low
+6	Heat sink temp range
+7	Pump temp high
+8	Input power low
+9	Output power low
+10	EDFA temperature high
+11	Pump temperature high
+12	Pump bias alarm
+13	-
+14	-
+15	Error code present
+#
+Error code	67
+0	No error
+#

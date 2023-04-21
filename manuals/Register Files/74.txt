@@ -1,0 +1,43 @@
+Module type	74
+SuperK Compact (S024)
+#
+Readings			
+1A	Supply voltage	V	U16	0.001
+1B	Heat sink temperature	°C	I16	0.1
+71	Optical pulse frequency	kHz	U32	0.001
+75	Actual internal trig frequency	kHz	U32	0.00001
+78	Display text	-	string
+7A	Power readout	%	U8	1
+#				
+Controls			
+24	Trig level setpoint	V	U16	0.001
+26	Display backlight setpoint	%	U8	1
+30	Emission	(0=off/1=on)	U8	1
+31	Trig mode	dec	U8	1
+32	Interlock	(>0=switch interlock on)	U16	1
+33	Internal pulse frequency	kHz	U32	0.001
+34	Burst pulses	-	U16	1
+35	Watchdog interval	Seconds	U8	1
+36	Internal pulse frequency limit	kHz	U32	0.001
+3E	Power level	%	U8	1
+65	Module serial number	-	string
+8D	User area	-	string
+#				
+Status bits	66
+0	Emission
+1	Interlock off
+2	Interlock power failure
+3	Interlock loop off
+4	-
+5	Supply voltage low
+6	Module temp range
+7	Pump temp high
+8	Pulse overrun
+9	Trig signal level
+10	Trig edge
+11	-
+12	-
+13	-
+14	-
+15	Error code present
+#

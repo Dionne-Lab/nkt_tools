@@ -1,0 +1,33 @@
+Module type	68
+SuperK Varia (A301)
+#
+Readings			
+13	Monitor input	%	U16	0.1
+#				
+Controls			
+32	Filter setpoint #1 (ND)	%	U16	0.1
+33	Filter setpoint #2 (SWP)	nm	U16	0.1
+34	Filter setpoint #3 (LWP)	nm	U16	0.1
+65	Module serial number		string
+#				
+Status bits	66
+0	-
+1	Interlock off
+2	Interlock loop in
+3	Interlock loop out
+4	-
+5	Supply voltage low
+6	Module temp range
+7	-
+8	Shutter sensor 1
+9	Shutter sensor 2
+10	-
+11	-
+12	Filter1 moving
+13	Filter2 moving
+14	Filter3 moving
+15	Error code present
+#
+Error code	67
+0	No error
+#	

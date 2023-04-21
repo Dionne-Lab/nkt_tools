@@ -1,0 +1,40 @@
+Module type	60
+SuperK Extreme (S4x2), Fianium
+#
+Readings			
+11	Inlet temperature	°C	I16	0.1
+#				
+Controls			
+30	Emission	0=Off;3=On	U8	1
+31	Setup bits	0=Current mode;1=Power mode	U16	1
+32	Interlock	(>0=reset interlock)	U16	1
+34	Pulse-Picker ratio	Times	U16	1
+36	Watchdog interval	Seconds	U8	1
+37	Power level	%	U16	0.1
+38	Current level	%	U16	0.1
+39	NIM delay	dec	U16	1
+65	Module serial number		string
+6B	System type		U8	1
+6C	User text		string
+#				
+Status bits	66
+0	Emission on
+1	Interlock off
+2	Interlock power failure
+3	Interlock loop off
+4	External disable
+5	Supply voltage low
+6	Module temp range
+7	-
+8	-
+9	-
+10	-
+11	-
+12	-
+13	-
+14	USB log error code present
+15	Error code present
+#
+Error code	67
+0	No error
+#	

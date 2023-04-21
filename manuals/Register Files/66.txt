@@ -1,0 +1,58 @@
+Module type	66
+RF Driver (A901) & SuperK Select (A203)
+#
+Controls			
+30	RF Power	0=Off;1=On	U8	1
+31	Setup bits		U16	1
+34	Minimum wavelength	nm	U32	0.001
+35	Maximum wavelength	nm	U32	0.001
+38	Crystal temperature	°C	I16	0.1
+3B	FSK mode	-	U8	1
+3C	Daughter board enable/disable	dec	U8	1
+65	Module serial number		string
+90	Wavelength #0	nm	U32	0.001
+91	Wavelength #1	nm	U32	0.001
+92	Wavelength #2	nm	U32	0.001
+93	Wavelength #3	nm	U32	0.001
+94	Wavelength #4	nm	U32	0.001
+95	Wavelength #5	nm	U32	0.001
+96	Wavelength #6	nm	U32	0.001
+97	Wavelength #7	nm	U32	0.001
+B0	Amplitude #0	%	U16	0.1
+B1	Amplitude #1	%	U16	0.1
+B2	Amplitude #2	%	U16	0.1
+B3	Amplitude #3	%	U16	0.1
+B4	Amplitude #4	%	U16	0.1
+B5	Amplitude #5	%	U16	0.1
+B6	Amplitude #6	%	U16	0.1
+B7	Amplitude #7	%	U16	0.1
+C0	Modulation gain #0	%	U16	0.1
+C1	Modulation gain #1	%	U16	0.1
+C2	Modulation gain #2	%	U16	0.1
+C3	Modulation gain #3	%	U16	0.1
+C4	Modulation gain #4	%	U16	0.1
+C5	Modulation gain #5	%	U16	0.1
+C6	Modulation gain #6	%	U16	0.1
+C7	Modulation gain #7	%	U16	0.1
+#
+Status bits	66
+0	Emission
+1	-
+2	-
+3	-
+4	-
+5	Supply voltage low
+6	Module temp range
+7	-
+8	-
+9	-
+10	-
+11	-
+12	-
+13	AODS communication timeout
+14	Needs crystal info
+15	Error code present
+#
+Error code	67
+0	No error
+#	

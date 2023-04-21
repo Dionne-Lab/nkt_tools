@@ -1,0 +1,73 @@
+Module type	34
+Koheras ADJUSTIK/ACOUSTIK (K822/K852)
+#
+Readings
+11	Supply voltage	V	U16	0.001
+#				
+Controls
+22.0	Wavelength mod. frequency (0)	Hz	U32	0.001
+22.1	Wavelength mod. frequency (1)	Hz	U32	0.001	
+24	Wavelength mod. level	%	U16	0.1
+25	Wavelength mod. offset	%	I16	0.1
+26.0	Amplitude mod. frequency (0)	Hz	U32	0.001
+26.1	Amplitude mod. frequency (1)	Hz	U32	0.001
+28	Amplitude mod. max power	%	U16	0.1		
+29	Amplitude mod. modulation depth	%	U16	0.1
+2D	Broadcast wavelength offset	pm	I16	0.1
+2E	Broadcast power (dBm)	dBm	I16	0.01
+2F	Broadcast power (mW)	mW	U16	0.01
+30	Broadcast emission	0/1	U8	1
+31	Broadcast setup	hex	H16	1
+32	Interlock	hex	H16	1
+34	Watchdog	sec	U8	1
+36	Multichannel imitation	dec	U16	1
+3B	Modulation setup	hex	H16	1
+3E	Broadcast wavelength mod. on/off	0/1	U8	1
+3F	Broadcast amplitude mod. on/off	0/1	U8	1
+65	Module serial number		string
+B0.0	IP address (0)		U8	1
+B0.1	IP address (1)		U8	1
+B0.2	IP address (2)		U8	1
+B0.3	IP address (3)		U8	1
+B3.0	MAC address (0)		H8	1
+B3.1	MAC address (1)		H8	1
+B3.2	MAC address (2)		H8	1
+B3.3	MAC address (3)		H8	1
+B3.4	MAC address (4)		H8	1
+B3.5	MAC address (5)		H8	1
+B4	System port		U16	1
+B5	Host port		U16	1
+B7.0	Host IP address (0)		U8	1
+B7.1	Host IP address (1)		U8	1
+B7.2	Host IP address (2)		U8	1
+B7.3	Host IP address (3)		U8	1
+#				
+Status bits	66
+0	Emission on
+1	Interlock relays off
+2	Interlock power failure
+3	Interlock loop off
+4	Re-addressing problem
+5	SD card problem
+6	Module communication problem
+7	No backplane
+8	Illegal MAC address
+9	Supply voltage low
+10	Temperature out of range
+11	-
+12	-
+13	-
+14	-
+15	Error code present
+#
+Error code	67
+0	No errors
+2	Interlock
+3	Low voltage
+4	Memory problem
+5	Watchdog
+6	Bad LED
+7	Board temperature range
+11	Broken fuse
+101	I/O expander problem
+#

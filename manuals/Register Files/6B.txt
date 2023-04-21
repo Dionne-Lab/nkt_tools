@@ -1,0 +1,31 @@
+Module type	6B
+SuperK EXTEND-UV (A351)
+#
+Readings			
+#				
+Controls			
+31	Wavelength	nm	U16	0.1
+32	Maximum wavelength	nm	U16	0.1
+33	Minimum wavelength	nm	U16	0.1
+65	Module serial number		string
+#				
+Status bits	66
+0	-
+1	Interlock off
+2	Interlock loop in
+3	Interlock loop out
+4	-
+5	Supply voltage low
+6	-
+7	-
+8	Shutter sensor 1
+9	Shutter sensor 2
+10	Shutter sensor 3
+11	-
+12	Stepper 1 moving
+13	Stepper 2 moving
+14	-
+15	Error code present
+#
+Error code	67
+#

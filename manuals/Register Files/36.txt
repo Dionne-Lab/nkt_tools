@@ -1,0 +1,46 @@
+Module type	36				
+Koheras BASIK MIKRO (K0x2)					
+#					
+Readings
+17	Output power	mW	U16	0.01	
+1C	Module temperature	°C	I16	0.1	
+1E	Supply voltage	V	U16	0.001	
+72	Wavelength offset readout	pm	I32	0.1	
+90	Output power monitor (dBm)	dBm	I16	0.01
+#					
+Controls					
+22	Output power setpoint	mW	U16	0.01	
+2A	Wavelength offset	pm	I16	0.1	
+30	Emission	0=off/1=on	U8	1	
+31	Setup bits	hex	H16	1	
+32	Standard wavelength	nm	U32	0.0001	
+3A	Emission delay	sec	U8	0.1	
+65	Module serial number		string		
+8D	User area		string	
+A0	Output power setpoint (dBm)	dBm	I16	0.01
+#					
+Status bits	66				
+0	Emission				
+1	Interlock off				
+2	-
+3	-
+4	Module disabled				
+5	Supply voltage low				
+6	Module temp range				
+7	-
+8	-
+9	-
+10	-				
+11	Waiting for temperature to drop				
+12	-				
+13	-				
+14	-
+15	Error code present				
+#					
+Error code	67				
+0	No error				
+2	Interlock				
+3	Low voltage				
+7	Module temperature range
+8	Module disabled				
+#					

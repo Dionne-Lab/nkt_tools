@@ -1,0 +1,37 @@
+Module type	21			
+Koheras BasiK Module (K80-1)				
+#				
+Readings				
+10.12	Wavelength-WLOFFSET	nm	U16	0.001
+10.13	WLOFFSET	nm	U16	1
+11	FL temperature	°C	U16	0.001
+15	Pump current	mA	U16	1
+18	Output power	mW	U16	0.01
+19	Module temperature	°C	U16	0.1
+1B	Module input voltage	V	U16	0.001
+#				
+Controls				
+23	Setpoint	mA or 0.01 mW	U16	1
+25	FL setpoint	°C or nm	U16	0.001
+30	Emission	0=Off;1=On	U8	1
+31	Current/power mode	0=Current;1=Power	U8	1
+32	Piezo modulation	0=Off;1=On	U8	1
+33	RIN suppression	0=Off;1=On	U8	1
+34	Temperature/wavelength mode	0=Temp;1=Wavelength	U8	1
+35	Temperature compensation mode	0=Off;1=On	U8	1
+36	Acknowledge mode	0=Off;1=On	U8	1
+65	Module serial number		string
+#				
+Status bits	66			
+0	EMISSIONBIT			
+1	CUPOMODEBIT			
+2	PIEZOBIT			
+3	HFBIT			
+4	WLBIT			
+5	FLSTABBIT			
+6	PUSTABBIT			
+7	SYSENBIT			
+#				
+Error code	67			
+0	No error			
+#				

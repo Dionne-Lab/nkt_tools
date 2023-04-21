@@ -32,6 +32,29 @@ class Extreme:
         result = nkt.registerRead(self.portname, self.module_address,
                                   register_address, -1)
         print(result)
+        #TODO Get MSB/LSB from result
+        MSB = 1  # What manual calls second byte
+        LSB = 0  # What manual calls first byte
+        # Interlock status message based on manual
+        output_options = ['Interlock off (interlock circuit open)',
+                          'Front panel interlock/key switch off',
+                          'Door switch open',
+                          'External module interlock',
+                          'Application interlock',
+                          'Internal module interlock',
+                          'Interlock power failure',
+                          'Interlock disabled by light source']
+        if LSB == 0:
+            print('Interlocked')
+            reason = output_options[MSB]
+            print(reason)
+
+        elif LSB == 1:
+            print('Waiting for interlock reset')
+
+        elif LSB == 2:
+            print('Interlock is OK')
+
 
 
 def find_modules():
