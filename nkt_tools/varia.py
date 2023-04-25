@@ -83,8 +83,6 @@ class Varia:
                 
             else:
                 print('No Varia Found')
-                #test change
-                
 
     def monitor_input(self):
         register_address = 0x13

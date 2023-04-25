@@ -3,11 +3,31 @@ import NKTP_DLL as nkt
 
 
 class Extreme:
+    status_messages = {
+        0: 'Emission on',
+        1: 'Interlock relays off',
+        2: 'Interlock supply voltage low (possible short circuit)',
+        3: 'Interlock loop open',
+        4: 'Output Control signal low',
+        5: 'Supply voltage low',
+        6: 'Inlet temperature out of range',
+        7: 'Clock battery low voltage',
+        8: '-',
+        9: '-',
+        10: '-',
+        11: '-',
+        12: '-',
+        13: 'CRC error on startup (possible module address conflict)',
+        14: 'Log error code present',
+        15: 'System error code present'
+        }
+    
     def __init__(self, portname=None):
         print('init class')
 
-        self.portname = ''  #: COM port for laser. Auto found if not given.
+        self.portname = None  #: COM port for laser. Auto found if not given.
         self.module_address = 15  #: module address = 15 for Extreme/Fianium
+        self.system_type = None
 
         if portname:  # Allow user to init specific NKT Laser on portname
             self.portname = portname
@@ -49,6 +69,16 @@ class Extreme:
             print('NKT Extreme/Fianium Found:')
             print('Comport: ', self.portname, 'Device type: ',
                   "0x%0.2X" % device_type, 'at address:', self.module_address)
+            # Determine whether system is Extreme or Fianium
+            register_address = 0x6B
+            _, type_index = nkt.registerReadU8(self.portname, 
+                                               self.module_address,
+                                               register_address, -1)
+
+            if not type_index:  # Errors should default to Extreme
+                type_index = 0 
+            type_list = ["SuperK Extreme", "SuperK Fianium"]
+            self.system_type = type_list[type_index]
         else:
             print('No Extreme/Fianium Laser Found')
 
@@ -73,12 +103,11 @@ class Extreme:
 
     def interlock_status(self):
         register_address = 0x32
-        result = nkt.registerRead(self.portname, self.module_address,
-                                  register_address, -1)
-        print(result)
-        #TODO Get MSB/LSB from result
-        MSB = 1  # What manual calls second byte
-        LSB = 0  # What manual calls first byte
+        result, reading = nkt.registerRead(self.portname, self.module_address,
+                                           register_address, -1)
+
+        LSB = reading[0]  # What manual calls first byte
+        MSB = reading[1]  # What manual calls second byte
         # Interlock status message based on manual
         output_options = ['Interlock off (interlock circuit open)',
                           'Front panel interlock/key switch off',
@@ -89,9 +118,8 @@ class Extreme:
                           'Interlock power failure',
                           'Interlock disabled by light source']
         if LSB == 0:
-            print('Interlocked')
             reason = output_options[MSB]
-            print(reason)
+            print('Interlocked: %s' % reason)
 
         elif LSB == 1:
             print('Waiting for interlock reset')
@@ -99,32 +127,22 @@ class Extreme:
         elif LSB == 2:
             print('Interlock is OK')
 
+    def get_status(self):
+        register_address = 0x66
+        result, byte = nkt.registerReadU16(self.portname, self.module_address,
+                                           register_address, -1)
+        print(nkt.RegisterResultTypes(result))
+        bits = bin(byte)
+        for index, bit in enumerate(reversed(bits)):
+            if bit == 'b':
+                break
+            elif bit == '1':
+                print(Extreme.status_messages[index])
+                
+        return(bits)
 
-
-def find_modules():
-    print('Find modules on all existing and accessible ports - Might take a few seconds to complete.....')
-    if (nkt.getLegacyBusScanning()):
-        print('Scanning following ports in legacy mode:', nkt.getAllPorts())
-    else:
-        print('Scanning following ports in normal mode:', nkt.getAllPorts())
-
-    # Use the openPorts function with Auto & Live settings. This will scan and detect modules
-    # on all ports returned by the getAllPorts function.
-    # Please note that a port being in use by another application, will show up in this list but will
-    # not show any devices due to this port being inaccessible.
-    print(nkt.openPorts(nkt.getAllPorts(), 1, 1))
-
-    # All ports returned by the getOpenPorts function has modules (ports with no modules will automatically be closed)
-    print('Following ports has modules:', nkt.getOpenPorts())
-
-    # Traverse the getOpenPorts list and retrieve found modules via the deviceGetAllTypes function
-    portlist = nkt.getOpenPorts().split(',')
-    for portName in portlist:
-        result, devList = nkt.deviceGetAllTypes(portName)
-        for devId in range(0, len(devList)):
-            if (devList[devId] != 0):
-                print('Comport:', portName, 'Device type:', "0x%0.2X" % devList[devId], 'at address:', devId)
-
-    # Close all ports
-    closeResult = nkt.closePorts('')
-    print('Close result: ', nkt.PortResultTypes(closeResult))
+if __name__ == "__main__":
+    laser = Extreme()
+    laser.get_status()
+    laser.interlock_status()
+    print(laser.system_type)
