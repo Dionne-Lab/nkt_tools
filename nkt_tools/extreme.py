@@ -3,10 +3,50 @@ import NKTP_DLL as nkt
 
 
 class Extreme:
-    def __init__(self):
+    def __init__(self, portname=None):
         print('init class')
-        self.portname = 'COM4'
-        self.module_address = 15
+
+        self.portname = ''  #: COM port for laser. Auto found if not given.
+        self.module_address = 15  #: module address = 15 for Extreme/Fianium
+
+        if portname:  # Allow user to init specific NKT Laser on portname
+            self.portname = portname
+
+        else:
+            # Open available ports
+            nkt.openPorts(nkt.getAllPorts(), 1, 1)
+
+            # Get open NKT ports
+            portlist = nkt.getOpenPorts().split(',')
+            extreme_found = False
+            for portName in portlist:
+
+                # get binary devList of connected nkt devices
+                result, devList = nkt.deviceGetAllTypes(portName)
+                # Get byte at location 15 (device address for extreme/fianium)
+                device_type = devList[self.module_address]
+
+                # Double check device_type matches extreme/fianium laser
+                if hex(device_type) == '0x60':  # 96 == 0x60 in hex
+                    if extreme_found:  # If extreme found on other port, error
+                        err_msg = ('''Multiple NKT Lasers found on computer.
+                        COM port 1 = %s
+                        COM port 2 = %s
+                        Please initialize Extreme class with designated \
+                        portname to avoid conflict'''
+                                   % (self.portname, portName))
+
+                        raise RuntimeError(err_msg)
+
+                    else:  # If first laser found,
+                        extreme_found = True
+                        self.portname = portName
+
+        # Close all ports
+        closeResult = nkt.closePorts('')
+        print('NKT Extreme/Fianium Found:')
+        print('Comport: ', self.portname, 'Device type: ',
+              "0x%0.2X" % device_type, 'at address:', self.module_address)
 
 
     def emission(self, state):
