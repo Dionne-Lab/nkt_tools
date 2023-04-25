@@ -160,5 +160,6 @@ class Varia:
               nkt.registerReadAscii(self.portname, self.module_address,
                                register_address, -1))
 
-varia = Varia()
-varia.get_status()
+if __name__ == "__main__":
+    varia = Varia()
+    varia.get_status()

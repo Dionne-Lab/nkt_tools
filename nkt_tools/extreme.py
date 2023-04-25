@@ -70,7 +70,7 @@ class Extreme:
             print('Comport: ', self.portname, 'Device type: ', "0x%0.2X"
                   % self.device_type, 'at address:', self.module_address)
             print('System Type = ', self.system_type)
-            print('Inlet Temperature = ', self.inlet_temperature)
+            print('Inlet Temperature = %3.1f C' % self.inlet_temperature)
 
         else:
             print('No Extreme/Fianium Laser Found')
@@ -121,7 +121,7 @@ class Extreme:
         register_address = 0x11
         comm_result, value = nkt.registerReadS16(self.portname, self.module_address,
                                     register_address, -1)
-        self._inlet_temperature = value * 10
+        self._inlet_temperature = value / 10
         return self._inlet_temperature
 
     def emission(self, state):
