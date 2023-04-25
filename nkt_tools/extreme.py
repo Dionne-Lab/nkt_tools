@@ -41,12 +41,16 @@ class Extreme:
                     else:  # If first laser found,
                         extreme_found = True
                         self.portname = portName
+                        self.device_type = device_type
 
         # Close all ports
         closeResult = nkt.closePorts('')
-        print('NKT Extreme/Fianium Found:')
-        print('Comport: ', self.portname, 'Device type: ',
-              "0x%0.2X" % device_type, 'at address:', self.module_address)
+        if extreme_found:
+            print('NKT Extreme/Fianium Found:')
+            print('Comport: ', self.portname, 'Device type: ',
+                  "0x%0.2X" % device_type, 'at address:', self.module_address)
+        else:
+            print('No Extreme/Fianium Laser Found')
 
 
     def emission(self, state):
