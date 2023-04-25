@@ -21,16 +21,16 @@ class Varia:
         14: 'Filter 3 moving',
         15: 'Error code present'
         }
-    
+
     def __init__(self, portname=None):
-        print('init')
-        self.portname = None  #: COM port name. Autosearches if not provided.
-        self.module_address = None  #: 16-25 for Varia. Auto searches in init.
-        self.device_type = None  #: This should update to 0x68 if init is right.
-        
+        print('Searching for connected NKT Varia...')
+        self._portname = None  # COM port name. Autosearches if not provided.
+        self._module_address = None  # 16-25 for Varia. Auto searches in init.
+        self._device_type = None  # This should update to 0x68 if init is right.
+
         if portname:  # Allow user to init specific NKT Laser on portname
-            self.portname = portname
-        
+            self._portname = portname
+
         else:  # User didn't specify port
             # Open available ports
             nkt.openPorts(nkt.getAllPorts(), 1, 1)
@@ -43,7 +43,7 @@ class Varia:
                 if portName == '':
                     continue
                 # get binary devList of connected nkt devices
-                result, devList = nkt.deviceGetAllTypes(portName)
+                comm_result, devList = nkt.deviceGetAllTypes(portName)
 
                 # Address for Varia depends on specific hardware.
                 # Search possible addresses (16-25) searching for connection.
@@ -54,7 +54,7 @@ class Varia:
                     except(IndexError):
                         print('No Varia on port: ', portName)
                         break
-                    
+
                     # Check if device_type matches varia (0x68)
                     if hex(device_type) == '0x68':  # Check for varia in hex
                         if varia_found:  # If varia found on other port, error
@@ -69,20 +69,31 @@ class Varia:
 
                         else:  # If first laser found,
                             varia_found = True
-                            self.portname = portName
-                            self.module_address = trial_address
-                            self.device_type = device_type
+                            self._portname = portName
+                            self._module_address = trial_address
+                            self._device_type = device_type
                             break
-                
+
             # Close all ports
             closeResult = nkt.closePorts('')
             if varia_found:
                 print('NKT Varia Found:')
-                print('Comport: ', self.portname, 'Device type: ', "0x%0.2X" 
+                print('Comport: ', self.portname, 'Device type: ', "0x%0.2X"
                       % self.device_type, 'at address:', self.module_address)
-                
+
             else:
                 print('No Varia Found')
+
+    portname = property(lambda self: self._portname)
+    """str, read-only: COM port for laser.
+    Autofound during init if not given. User can supply when creating object."""
+
+    module_address = property(lambda self: self._module_address)
+    """int, read-only:  # 16-25 for Varia. Auto searches in init."""
+
+    device_type = property(lambda self: self._device_type)
+    """int, read-only: This should update to 104 (0x68) if init is right.
+    Assigned and checked during object init."""
 
     def monitor_input(self):
         register_address = 0x13
@@ -122,7 +133,7 @@ class Varia:
                 break
             elif bit == '1':
                 print(Varia.status_messages[index])
-                
+
         return(bits)
 
     def demo_read_funcs(self):
