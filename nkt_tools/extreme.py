@@ -21,8 +21,47 @@ class Extreme:
         14: 'Log error code present',
         15: 'System error code present'
         }
+    """
+    dict : system status translation bits > string
+
+    =========  ========================================================
+    Bit Index  Status
+    =========  ========================================================
+    Bit 0:     Emission on
+    Bit 1:     Interlock relays off
+    Bit 2:     Interlock supply voltage low (possible short circuit)
+    Bit 3:     Interlock loop open
+    Bit 4:     Output Control signal low
+    Bit 5:     Supply voltage low
+    Bit 6:     Inlet temperature out of range
+    Bit 7:     Clock battery low voltage
+    ...
+    Bit 13:     CRC error on startup (possible module address conflict)
+    Bit 14:     Log error code present
+    Bit 15:     System error code present
+    =========  ========================================================
+    """
 
     def __init__(self, portname=None):
+        """
+        Searches for connected NKT lasers and defines instrument parameters.
+
+        Make sure devices are not connected via another program already.
+        If multiple Extreme/Fianium lasers are connected to the same computer,
+        specificy the port of the desired laser upon instantiation.
+
+        Parameters
+        ----------
+        portname : str, optional
+            Enter if portname for laser is known/multiple lasers are connected.
+            If not supplied, system searches for laser. None by default.
+
+        Raises
+        ------
+        RuntimeError
+            Throws error if multiple NKT lasers are found on one computer.
+            Supply portname for desired laser if multiple present.
+        """
         print('Searching for connected NKT Laser...')
         self._portname = None  # COM port for laser. Auto found if not given.
         self._module_address = 15  # module address = 15 for Extreme/Fianium
@@ -31,6 +70,7 @@ class Extreme:
 
         if portname:  # Allow user to init specific NKT Laser on portname
             self._portname = portname
+            self._device_type = 96  # Could put check here
 
         else:  # Search for connection w/ laser
             # Open available ports
@@ -84,7 +124,8 @@ class Extreme:
 
     portname = property(lambda self: self._portname)
     """str, read-only: COM port for laser.
-    Autofound during init if not given. User can supply when creating object."""
+    Autofound during init if not given. User can supply when creating object.
+    """
 
     @property
     def system_type(self):
@@ -102,8 +143,8 @@ class Extreme:
         # Determine whether system is Extreme or Fianium
         register_address = 0x6B
         _, type_index = nkt.registerReadU8(self.portname,
-                                            self.module_address,
-                                            register_address, -1)
+                                           self.module_address,
+                                           register_address, -1)
 
         if not type_index:  # Errors should default to Extreme
             type_index = 0
@@ -114,13 +155,19 @@ class Extreme:
     @property
     def inlet_temperature(self):
         """
-        Accesses register 0x11 to retrun inlet temperate w/ 0.1 C precision.
+        Accesses register 0x11 to return inlet temperature w/ 0.1 C precision.
 
         Updates the value of non-public attr when called.
+
+        Return
+        ------
+        float
+            Inlet temperature w/ 0.1 C precision.
         """
         register_address = 0x11
-        comm_result, value = nkt.registerReadS16(self.portname, self.module_address,
-                                    register_address, -1)
+        comm_result, value = nkt.registerReadS16(self.portname,
+                                                 self.module_address,
+                                                 register_address, -1)
         self._inlet_temperature = value / 10
         return self._inlet_temperature
 
@@ -130,8 +177,9 @@ class Extreme:
 
         Uses nktp_dll to write to register 0x30.
 
-        Parameters:
-        state: bool
+        Parameters
+        ----------
+        state : bool
             True turns laser on, false turns emission off
         """
         register_address = 0x30
@@ -143,9 +191,37 @@ class Extreme:
                                 register_address, 0x00, -1)
 
     def interlock_status(self):
+        """
+        Print interlock status to terminal.
+
+        Reads register 0x32 and converts bytes into strings based on manual.
+
+        Manual:
+        Reading the interlock register returns the current interlock status,
+        which consists of two unsigned bytes. The first byte (LSB) tells if the
+        interlock circuit is open or closed. The second byte (MSB) tells where
+        the interlock circuit is open, if relevant.
+
+        === === =======================================
+        MSB LSB Description
+        === === =======================================
+        -   0   Interlock off (interlock circuit open)
+        0   1   Waiting for interlock reset
+        0   2   Interlock is OK
+        1   0   Front panel interlock / key switch off
+        2   0   Door switch open
+        3   0   External module interlock
+        4   0   Application interlock
+        5   0   Internal module interlock
+        6   0   Interlock power failure
+        7   0   Interlock disabled by light source
+        255 -   Interlock circuit failure
+        === === =======================================
+        """
         register_address = 0x32
-        result, reading = nkt.registerRead(self.portname, self.module_address,
-                                           register_address, -1)
+        comm_result, reading = nkt.registerRead(self.portname,
+                                                self.module_address,
+                                                register_address, -1)
 
         LSB = reading[0]  # What manual calls first byte
         MSB = reading[1]  # What manual calls second byte
@@ -168,7 +244,39 @@ class Extreme:
         elif LSB == 2:
             print('Interlock is OK')
 
+    def set_interlock(self, value):
+        """
+        Reset or trip interlock with >0 or 0, respectively.
+
+        Manual:
+        If the door interlock is in place, the key switch on the front plate is
+        in On position and the External bus is terminated with e.g. a bus
+        defeater then the Interlock circuit can be reset via the Interbus
+        interface by sending a value greater than 0 to the Interlock register.
+        Additionally, the opposite function (switching interlock relays off)
+        can be done by sending the value 0 to the interlock register.
+
+        Parameters
+        ----------
+        value: int
+            0 trips interlock. >0 resets interlock.
+
+        """
+        pass
+
     def get_status(self):
+        """
+        Read system status in bytes, translate to str, print.
+
+        Reads system status using registerReadU16 on register 0x66.
+        Translates binary into str for of equipment status through
+        Extreme.status_messages.
+
+        Returns
+        -------
+        str : bits
+            binary results of register read in string format.
+        """
         register_address = 0x66
         result, byte = nkt.registerReadU16(self.portname, self.module_address,
                                            register_address, -1)
@@ -180,7 +288,8 @@ class Extreme:
             elif bit == '1':
                 print(Extreme.status_messages[index])
 
-        return(bits)
+        return (bits)
+
 
 if __name__ == "__main__":
     laser = Extreme()

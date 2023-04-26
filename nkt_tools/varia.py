@@ -21,12 +21,55 @@ class Varia:
         14: 'Filter 3 moving',
         15: 'Error code present'
         }
+    """
+    dict : system status translation bits > string
+    =========  ===================
+    Bit Index  Status
+    =========  ===================
+    Bit 0:     -
+    Bit 1:     Interlock off
+    Bit 2:     Interlock loop in
+    Bit 3:     Interlock loop out
+    Bit 4:     -
+    Bit 5:     Supply voltage low
+    Bit 6:     -
+    Bit 7:     -
+    Bit 8:     Shutter sensor 1
+    Bit 9:     Shutter sensor 2
+    Bit 10:    -
+    Bit 11:    -
+    Bit 12:    Filter 1 moving
+    Bit 13:    Filter 2 moving
+    Bit 14:    Filter 3 moving
+    Bit 15:    Error code present
+    =========  ===================
+
+    """
 
     def __init__(self, portname=None):
+        """
+        Searches for connected NKT Varia and defines instrument parameters.
+
+        Make sure devices are not connected via another program already.
+        If multiple Varias are connected to the same computer,
+        specificy the port of the desired Varia upon instantiation.
+
+        Parameters
+        ----------
+        portname : str, optional
+            Enter if portname for Varia is known/multiple lasers are connected.
+            If not supplied, system searches for Varia. None by default.
+
+        Raises
+        ------
+        RuntimeError
+            Throws error if multiple NKT Varias are found on one computer.
+            Supply portname for desired Varia if multiple present.
+        """
         print('Searching for connected NKT Varia...')
         self._portname = None  # COM port name. Autosearches if not provided.
         self._module_address = None  # 16-25 for Varia. Auto searches in init.
-        self._device_type = None  # This should update to 0x68 if init is right.
+        self._device_type = None  # This should update to 0x68 if init is right
 
         if portname:  # Allow user to init specific NKT Laser on portname
             self._portname = portname
@@ -48,10 +91,10 @@ class Varia:
                 # Address for Varia depends on specific hardware.
                 # Search possible addresses (16-25) searching for connection.
                 for n in range(9):
-                    trial_address = 16 + n  # Address = 16 + Rotary switch # (0..9)
+                    trial_address = 16 + n  # Address=16+Rotary switch #(0..9)
                     try:
                         device_type = devList[trial_address]
-                    except(IndexError):
+                    except (IndexError):
                         print('No Varia on port: ', portName)
                         break
 
@@ -63,7 +106,7 @@ class Varia:
                             COM port 2 = %s
                             Please initialize Varia class with designated \
                             portname to avoid conflict'''
-                                    % (self.portname, portName))
+                                       % (self.portname, portName))
 
                             raise RuntimeError(err_msg)
 
@@ -86,7 +129,8 @@ class Varia:
 
     portname = property(lambda self: self._portname)
     """str, read-only: COM port for laser.
-    Autofound during init if not given. User can supply when creating object."""
+    Autofound during init if not given. User can supply when creating object.
+    """
 
     module_address = property(lambda self: self._module_address)
     """int, read-only:  # 16-25 for Varia. Auto searches in init."""
@@ -96,33 +140,96 @@ class Varia:
     Assigned and checked during object init."""
 
     def monitor_input(self):
+        """
+        Uses optional monitor to get laser power in percent.
+
+        Calls registerREad16U on register 0x13. Converts reading from in to
+        float. Requires the optional monitor to be attached for this register
+        content to be valid.
+
+        Returns
+        -------
+        float
+            Output power given in percent with 0.1% precision.
+        """
         register_address = 0x13
-        result = nkt.registerRead(self.portname, self.module_address,
-                                  register_address, -1)
-        print(result)
-        output_power = 'not yet implemented'
+        comm_result, reading = nkt.registerRead16U(self.portname,
+                                                   self.module_address,
+                                                   register_address, -1)
+        print(reading)
+        output_power = reading / 10
 
         return output_power
 
     def nd_setpoint(self, value):
+        """
+        Unclear what this parameter actually controls.
+
+        Writes to register 0x32.
+
+        Manual:
+        The output level of the SuperK VARIA is controlled with an unsigned
+        16-bit integer value sent to the neutral density filter setpoint
+        register. The value in this register is in tenths of percent
+        (permille, ‰).
+
+        Parameters
+        ----------
+        value : float
+            Setpoint for neutral density filter given in % with 0.1% precision.
+        """
         register_address = 0x32
-        value = int(value/10)  # convert percent to permille
+        value = int(value * 10)  # convert percent to permille
         nkt.registerWrite(self.portname, self.module_address,
                           register_address, value, -1)
 
-    def swp_setpoint(self, value):
+    def low_setpoint(self, wavelength):
+        """
+        Sets the short wave pass value with 0.1 nm precision.
+
+        Converts wavelength value [nm] to int [1/10 nm] then writes to register
+        0x33.
+
+        Parameters
+        ----------
+        wavelength : float
+            Lower bandpass value given in nanometers w/ 0.1 nm precision.
+        """
         register_address = 0x33
-        value = int(value/10)  # convert nm to 1/10 nm
+        value = int(wavelength * 10)  # convert nm to 1/10 nm
         nkt.registerWrite(self.portname, self.module_address,
                           register_address, value, -1)
 
-    def lwp_setpoint(self, value):
+    def high_setpoint(self, wavelength):
+        """
+        Sets the long wave pass value with 0.1 nm precision.
+
+        Converts wavelength value [nm] to int [1/10 nm] then writes to register
+        0x34.
+
+        Parameters
+        ----------
+        wavelength : float
+            Upper bandpass value given in nanometers w/ 0.1 nm precision.
+        """
         register_address = 0x34
-        value = int(value/10)  # convert nm to 1/10 nm
+        value = int(wavelength * 10)  # convert nm to 1/10 nm
         nkt.registerWrite(self.portname, self.module_address,
                           register_address, value, -1)
 
     def get_status(self):
+        """
+        Read system status in bytes, translate to str, print.
+
+        Reads system status using registerReadU16 on register 0x66.
+        Translates binary into str for of equipment status through
+        Varia.status_messages.
+
+        Returns
+        -------
+        str : bits
+            binary results of register read in string format.
+        """
         register_address = 0x66
         result, byte = nkt.registerReadU16(self.portname, self.module_address,
                                            register_address, -1)
@@ -134,31 +241,38 @@ class Varia:
             elif bit == '1':
                 print(Varia.status_messages[index])
 
-        return(bits)
+        return (bits)
 
     def demo_read_funcs(self):
+        """
+        Tests various registerRead functions supplied by NKTPDLL.
+
+        Makes read request to register 0x66 (system status) using various
+        registerRead commands as an example of the data type returned by each.
+        """
         register_address = 0x66
-        print( 'registerRead: ',
+        print('registerRead: ',
               nkt.registerRead(self.portname, self.module_address,
                                register_address, -1))
-        print( 'registerReadU8: ',
+        print('registerReadU8: ',
               nkt.registerReadU8(self.portname, self.module_address,
-                               register_address, -1))
-        print( 'registerReadS8: ',
+                                 register_address, -1))
+        print('registerReadS8: ',
               nkt.registerReadS8(self.portname, self.module_address,
-                               register_address, -1))
-        print( 'registerReadU16: ',
+                                 register_address, -1))
+        print('registerReadU16: ',
               nkt.registerReadU16(self.portname, self.module_address,
-                               register_address, -1))
-        print( 'registerReadU32: ',
+                                  register_address, -1))
+        print('registerReadU32: ',
               nkt.registerReadU32(self.portname, self.module_address,
-                               register_address, -1))
-        print( 'registerReadF32: ',
+                                  register_address, -1))
+        print('registerReadF32: ',
               nkt.registerReadF32(self.portname, self.module_address,
-                               register_address, -1))
-        print( 'registerReadAscii: ',
+                                  register_address, -1))
+        print('registerReadAscii: ',
               nkt.registerReadAscii(self.portname, self.module_address,
-                               register_address, -1))
+                                    register_address, -1))
+
 
 if __name__ == "__main__":
     varia = Varia()
