@@ -217,7 +217,7 @@ class Varia:
         nkt.registerWrite(self.portname, self.module_address,
                           register_address, value, -1)
 
-    def get_status(self):
+    def print_status(self):
         """
         Read system status in bytes, translate to str, print.
 
@@ -276,4 +276,4 @@ class Varia:
 
 if __name__ == "__main__":
     varia = Varia()
-    varia.get_status()
+    varia.print_status()
