@@ -183,7 +183,7 @@ class Varia:
         nkt.registerWrite(self.portname, self.module_address,
                           register_address, value, -1)
 
-    def low_setpoint(self, wavelength):
+    def long_setpoint(self, wavelength):
         """
         Sets the short wave pass value with 0.1 nm precision.
 
@@ -200,7 +200,7 @@ class Varia:
         nkt.registerWrite(self.portname, self.module_address,
                           register_address, value, -1)
 
-    def high_setpoint(self, wavelength):
+    def short_setpoint(self, wavelength):
         """
         Sets the long wave pass value with 0.1 nm precision.
 
