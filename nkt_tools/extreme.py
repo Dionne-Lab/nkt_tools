@@ -323,9 +323,9 @@ class Extreme:
             Pulse picker divide ratio
         """
         register_address = 0x34
-        comm_result, ratio = nkt.registerRead(self.portname,
-                                              self.module_address,
-                                              register_address, -1)
+        comm_result, ratio = nkt.registerReadU16(self.portname,
+                                                 self.module_address,
+                                                 register_address, -1)
         self._pulse_picker_ratio = ratio
         return self._pulse_picker_ratio
 
@@ -347,9 +347,9 @@ class Extreme:
             Pulse picker divide ratio
         """
         register_address = 0x36
-        comm_result, interval = nkt.registerRead(self.portname,
-                                                 self.module_address,
-                                                 register_address, -1)
+        comm_result, interval = nkt.registerReadU8(self.portname,
+                                                   self.module_address,
+                                                   register_address, -1)
         self._watchdog_interval = interval
         return self._watchdog_interval
 
@@ -411,9 +411,9 @@ class Extreme:
         """
         register_address = 0x38
         step = 9e-12  # Step size for delay is 9 ps
-        comm_result, delay = nkt.registerRead(self.portname,
-                                              self.module_address,
-                                              register_address, -1)
+        comm_result, delay = nkt.registerReadU16(self.portname,
+                                                self.module_address,
+                                                register_address, -1)
         self._nim_delay = delay * step
         return self._nim_delay
 
@@ -648,8 +648,8 @@ class Extreme:
                    self.power_level,
                    self.current_level,
                    self.nim_delay)
-        output_msg = (
-            """System type = %s
+        output_msg = ("""
+        System type = %s
         Inlet Temperature = %s
         Emission state = %s
         Setup status = %s
@@ -658,7 +658,8 @@ class Extreme:
         Watchdog interval = %s
         Power level = %s
         Current level = %s
-        NIM delay = %s""" % outputs)
+        NIM delay = %s
+        """ % outputs)
         print(output_msg)
 
 

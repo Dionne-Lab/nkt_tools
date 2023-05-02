@@ -153,7 +153,7 @@ class Varia:
             Output power given in percent with 0.1% precision.
         """
         register_address = 0x13
-        comm_result, reading = nkt.registerRead16U(self.portname,
+        comm_result, reading = nkt.registerReadU16(self.portname,
                                                    self.module_address,
                                                    register_address, -1)
         print(reading)
