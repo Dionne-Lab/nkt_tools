@@ -139,6 +139,7 @@ class Varia:
     """int, read-only: This should update to 104 (0x68) if init is right.
     Assigned and checked during object init."""
 
+    @property
     def monitor_input(self):
         """
         Uses optional monitor to get laser power in percent.
@@ -161,7 +162,8 @@ class Varia:
 
         return output_power
 
-    def nd_setpoint(self, value):
+    @property
+    def nd_setpoint(self):
         """
         Unclear what this parameter actually controls.
 
@@ -179,10 +181,19 @@ class Varia:
             Setpoint for neutral density filter given in % with 0.1% precision.
         """
         register_address = 0x32
-        value = int(value * 10)  # convert percent to permille
-        nkt.registerWrite(self.portname, self.module_address,
-                          register_address, value, -1)
+        comm_result, reading = nkt.registerReadU16(self.portname,
+                                                   self.module_address,
+                                                   register_address, -1)
+        return reading/10
 
+    @nd_setpoint.setter
+    def nd_setpoint(self, value):
+        register_address = 0x32
+        value = int(value * 10)  # convert percent to permille
+        nkt.registerWriteU16(self.portname, self.module_address,
+                             register_address, value, -1)
+
+    @property
     def long_setpoint(self, wavelength):
         """
         Sets the short wave pass value with 0.1 nm precision.
@@ -196,11 +207,20 @@ class Varia:
             Lower bandpass value given in nanometers w/ 0.1 nm precision.
         """
         register_address = 0x33
-        value = int(wavelength * 10)  # convert nm to 1/10 nm
-        nkt.registerWrite(self.portname, self.module_address,
-                          register_address, value, -1)
+        comm_result, reading = nkt.registerReadU16(self.portname,
+                                                   self.module_address,
+                                                   register_address, -1)
+        return reading/10
 
-    def short_setpoint(self, wavelength):
+    @long_setpoint.setter
+    def long_setpoint(self, wavelength):
+        register_address = 0x33
+        value = int(wavelength * 10)  # convert nm to 1/10 nm
+        nkt.registerWriteU16(self.portname, self.module_address,
+                             register_address, value, -1)
+
+    @property
+    def short_setpoint(self):
         """
         Sets the long wave pass value with 0.1 nm precision.
 
@@ -213,9 +233,17 @@ class Varia:
             Upper bandpass value given in nanometers w/ 0.1 nm precision.
         """
         register_address = 0x34
+        comm_result, reading = nkt.registerReadU16(self.portname,
+                                                   self.module_address,
+                                                   register_address, -1)
+        return reading/10
+
+    @short_setpoint.setter
+    def short_setpoint(self, wavelength):
+        register_address = 0x34
         value = int(wavelength * 10)  # convert nm to 1/10 nm
-        nkt.registerWrite(self.portname, self.module_address,
-                          register_address, value, -1)
+        nkt.registerWriteU16(self.portname, self.module_address,
+                             register_address, value, -1)
 
     def print_status(self):
         """
@@ -243,7 +271,13 @@ class Varia:
 
         return (bits)
 
-    def demo_read_funcs(self):
+    def read_all_properties(self):
+        print('Input Power = ', self.monitor_input)
+        print('ND Setpoint = ', self.nd_setpoint)
+        print('Long Setpoint = ', self.long_setpoint)
+        print('Short Setpoint = ', self.short_setpoint)
+
+    def demo_nkt_registerReads(self):
         """
         Tests various registerRead functions supplied by NKTPDLL.
 
@@ -277,3 +311,5 @@ class Varia:
 if __name__ == "__main__":
     varia = Varia()
     varia.print_status()
+    varia.read_all_properties()
+    varia.demo_nkt_registerReads()
