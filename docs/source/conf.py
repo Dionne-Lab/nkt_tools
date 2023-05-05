@@ -44,6 +44,13 @@ napoleon_google_docstring = False
 napoleon_numpy_docstring = True
 todo_include_todos = True
 
+intersphinx_mapping = {
+    "python": ("http://docs.python.org/3", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "pandas": ("https://pandas.pydata.org/docs/", None),
+    "matplotlib": ("https://matplotlib.org/stable/", None),
+    "PyQt5": ("https://www.riverbankcomputing.com/static/Docs/PyQt5/", None)
+}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

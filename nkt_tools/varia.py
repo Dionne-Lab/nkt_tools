@@ -22,7 +22,8 @@ class Varia:
         15: 'Error code present'
         }
     """
-    dict : system status translation bits > string
+    dict : system status translation bits > string.
+    
     =========  ===================
     Bit Index  Status
     =========  ===================
