@@ -20,10 +20,10 @@ into this:
     laser = Extreme()
     laser.set_emission(True)
 
-:mod:`nkt_tools` is a wrapper around NKT's DLL to provide object oriented interaction with NKT products. NKT Extreme/Fianium lasers and the Varia system are currently supported. Additional systems can be accessed through the DLL by using the registerRead/Write functions within :mod:`nkt_tools.NKTP_DLL` or interested developers can write new modules by following the :doc:`developent notes </development_notes>` provided.
+:mod:`nkt_tools` is a wrapper around NKT's DLL to provide object oriented interaction with NKT products. NKT Extreme/Fianium lasers and the Varia system are currently supported. Additional systems can be accessed through the DLL by using the registerRead/Write functions within :mod:`nkt_tools.NKTP_DLL` or interested developers can write new modules by following the :doc:`development notes </development_notes>` provided.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Manual
 
    guide

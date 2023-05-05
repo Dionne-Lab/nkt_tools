@@ -200,3 +200,15 @@ For the Varia, almost everything works the same, except that all properties allo
     varia = Varia()
     varia.short_setpoint = 490
     current_filter_power = varia.short_setpoint
+
+.. _chatgpt:
+
+How I Tried ChatGPT to Automatically Write Other NKT Modules
+============================================================
+At this point, the process of creating a new module is fairly formulaic. Scan the manual for register addresses and write class methods that read/write to those registers with more informative naming conventions. I thought this could be a perfect job for AI to help with since I little personal motivation to write modules for hardware our lab does not own. I attempted to leverage the ChatGPT web interface to write this new modules with limited success.
+
+#. I realized quickly that ChatGPT puts a limit on the number of lines of text that can be sent at once. I utilized a `prompt text splitter <https://chatgpt-prompt-splitter.jjdiaz.dev/>`_ to split my requests into 47 seperate prompt, which I then copied and pasted into chatGPT.
+#. I sent ChatGPT the manual entries in the DLL instruction manual for the extreme/varia followed by my python code. I saved the entry in the repository (:download:`chatgpt_auto_nkt_tools_prompt.docx <../../manuals/chatgpt_auto_nkt_tools_prompt.docx>`).
+#. ChatGPT next output a fairly reasonable python file (:mod:`nkt_tools.chatgpt_select`). Without demoing this module on a real system, it appears that it may function correctly.
+#. I next sent the manual entry for the NKT Extend UV tool and chatGPT produced the :mod:`nkt_tools.chatgpt_extend_uv` module. This version was messier than the orginal output for the Select, and I found chatGPT was producing a lot of style and format variation between modules. For this reason, I stopped trying to create these AI built modules.
+#. I saved both AI built modules (Select and Extend UV) with the prefix "chatgpt" so so future users will know the modules were AI generated, but could try to use them as starting points if they'd like to.

@@ -1,4 +1,4 @@
-﻿nkt\_tools.varia
+nkt\_tools.varia
 ================
 
 .. automodule:: nkt_tools.varia

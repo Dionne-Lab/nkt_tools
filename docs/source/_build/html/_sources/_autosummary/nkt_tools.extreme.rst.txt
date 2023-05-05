@@ -1,4 +1,4 @@
-﻿nkt\_tools.extreme
+nkt\_tools.extreme
 ==================
 
 .. automodule:: nkt_tools.extreme
