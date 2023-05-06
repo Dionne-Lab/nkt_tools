@@ -33,7 +33,7 @@ extensions = [
     ]
 
 autosummary_generate = True
-autodoc_default_options = {'inherited-members': False}
+#autodoc_default_options = {'inherited-members': False}
 
 templates_path = ['_templates']
 source_suffix = '.rst'
@@ -60,3 +60,8 @@ html_static_path = ['_static']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"
+
+autodoc_mock_imports = [
+    'superk',
+    'nkt'
+]

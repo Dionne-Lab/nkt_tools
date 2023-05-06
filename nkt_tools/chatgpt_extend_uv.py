@@ -1,7 +1,9 @@
 import ctypes
+import superk  # dummy import added to hide chatgpt mix up
 
+# Below is original chatgpt import (wrong)
 # Load the SuperK.dll library
-superk = ctypes.WinDLL("SuperK.dll")
+# superk = ctypes.WinDLL("SuperK.dll")
 
 # Define the module type number
 MODULE_TYPE = 0x6B
