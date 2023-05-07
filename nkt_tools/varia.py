@@ -1,5 +1,5 @@
 """Python module to control NKT Varia."""
-import nkt_tools.NKTP_DLL as nkt
+from . import NKTP_DLL as nkt
 
 
 class Varia:
@@ -23,7 +23,7 @@ class Varia:
         }
     """
     dict : system status translation bits > string.
-    
+
     =========  ===================
     Bit Index  Status
     =========  ===================
