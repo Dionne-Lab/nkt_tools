@@ -1,3 +1,4 @@
+"""AI generated, untested module for control of Select. Editting needed."""
 import nkt
 
 class SuperKSelect:
