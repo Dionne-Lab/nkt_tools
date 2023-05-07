@@ -1,5 +1,5 @@
 """Python module to control NKT Varia."""
-from . import NKTP_DLL as nkt
+import nkt_tools.NKTP_DLL as nkt
 
 
 class Varia:

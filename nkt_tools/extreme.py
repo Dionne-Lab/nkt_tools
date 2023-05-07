@@ -7,7 +7,7 @@ explicitly has to adjust potentially dangerous conditions
 the user is actively turning the laser on (vs. laser.emission = True). Less
 dangerous properties follow the dedicated setter method format for consistency.
 """
-from . import NKTP_DLL as nkt
+import nkt_tools.NKTP_DLL as nkt
 
 
 class Extreme:
