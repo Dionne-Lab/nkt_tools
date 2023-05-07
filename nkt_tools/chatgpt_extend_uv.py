@@ -1,3 +1,4 @@
+"""AI generated, untested module for control of Extend UV. Editting needed."""
 import ctypes
 import superk  # dummy import added to hide chatgpt mix up
 
