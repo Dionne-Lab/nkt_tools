@@ -1,4 +1,3 @@
-# nkt_tools
 This repository contains tools for accessing NKT photonics devices via python through the NKT SDK
 
 nkt_tools turns this:
@@ -17,3 +16,17 @@ into this:
     laser.set_emission(True)
 
 nkt_tools is a wrapper around NKT's DLL to provide object oriented interaction with NKT products. NKT Extreme/Fianium lasers and the Varia system are currently supported. Additional systems can be accessed through the DLL by using the registerRead/Write functions within nkt_tools.NKTP_DLL or interested developers can write new modules by following the development notes provided.
+
+**ReadtheDocs Page:**
+https://nkt-tools.readthedocs.io/en/latest/
+
+**PyPI Page:**
+https://pypi.org/project/nkt-tools/
+
+Please also check out my related package, CataLight, which automates data collection and processing for photocatalysis research!
+
+**ReadtheDocs Page:**
+https://catalight.readthedocs.io/en/latest/
+
+**PyPI Page:**
+https://pypi.org/project/catalight/
