@@ -63,5 +63,8 @@ pygments_style = "sphinx"
 
 autodoc_mock_imports = [
     'superk',
-    'nkt'
+    'nkt',
+    'ctypes',
+    'collections',
+    'os'
 ]
