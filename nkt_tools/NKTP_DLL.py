@@ -1,3 +1,5 @@
+"""Imports NKT Photonics DLL to use for accessing equipment.
+This file is taken as is from NKT with very minor updates"""
 # Testing
 import ctypes
 import os

@@ -57,6 +57,7 @@ intersphinx_mapping = {
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_extra_path = ['google98d167b53b925d69.html']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"
