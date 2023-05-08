@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; nkt_tools 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development Notes" href="development_notes.html" />
+    <link rel="prev" title="User Guide" href="guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            nkt_tools
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nkt_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h1>
+<section id="extreme-fianium">
+<h2>Extreme/Fianium<a class="headerlink" href="#extreme-fianium" title="Permalink to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Initializing object</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nkt_tools.extreme</span> <span class="kn">import</span> <span class="n">Extreme</span>
+
+<span class="n">laser</span> <span class="o">=</span> <span class="n">Extreme</span><span class="p">()</span>
+
+<span class="c1"># Loading x64 DLL from: C:\src\repos\nkt_tools\nkt_tools\NKTPDLL\x64\NKTPDLL.dll</span>
+<span class="c1"># Searching for connected NKT Laser...</span>
+<span class="c1"># NKT Extreme/Fianium Found:</span>
+<span class="c1"># Comport:  COM4 Device type:  0x60 at address: 15</span>
+<span class="c1"># System Type =  SuperK Extreme</span>
+<span class="c1"># Inlet Temperature = 22.8 C</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">reading system’s current conditions</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">laser</span><span class="o">.</span><span class="n">portname</span>
+<span class="c1"># Out[]: &#39;COM4&#39;</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">module_address</span>
+<span class="c1"># Out[]: 15</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">device_type</span>
+<span class="c1"># Out[]: 96</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">current_level</span>
+<span class="c1"># Out[]: 1.1</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">power_level</span>
+<span class="c1"># Out[]: 100.0</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">emission_state</span>
+<span class="c1"># Out[]: False</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">inlet_temperature</span>
+<span class="c1"># Out[]: 22.9</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">interlock_status</span>
+<span class="c1"># Out[]: (0, &#39;Interlocked: Front panel interlock/key switch off&#39;)</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">nim_delay</span>
+<span class="c1"># Out[]: 9.9e-11</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">pulse_picker_ratio</span>
+<span class="c1"># Out[]: 1</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">watchdog_interval</span>
+<span class="c1"># Out[]: 30</span>
+
+<span class="n">laser</span><span class="o">.</span><span class="n">setup_status</span>
+<span class="c1"># Out[]: &#39;Constant current mode&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">test_read_funcs() method demonstrates the output of each property read and prints it.</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">laser</span><span class="o">.</span><span class="n">test_read_funcs</span><span class="p">()</span>
+
+        <span class="n">System</span> <span class="nb">type</span> <span class="o">=</span> <span class="n">SuperK</span> <span class="n">Extreme</span>
+        <span class="n">Inlet</span> <span class="n">Temperature</span> <span class="o">=</span> <span class="mf">22.8</span>
+        <span class="n">Emission</span> <span class="n">state</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">Setup</span> <span class="n">status</span> <span class="o">=</span> <span class="n">Constant</span> <span class="n">current</span> <span class="n">mode</span>
+        <span class="n">Interlock</span> <span class="n">Status</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Interlocked: Front panel interlock/key switch off&#39;</span><span class="p">)</span>
+        <span class="n">Pulse</span> <span class="n">picker</span> <span class="n">ratio</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">Watchdog</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">30</span>
+        <span class="n">Power</span> <span class="n">level</span> <span class="o">=</span> <span class="mf">100.0</span>
+        <span class="n">Current</span> <span class="n">level</span> <span class="o">=</span> <span class="mf">1.1</span>
+        <span class="n">NIM</span> <span class="n">delay</span> <span class="o">=</span> <span class="mf">9.9e-11</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">print_status() method shows current condition of laser</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">laser</span><span class="o">.</span><span class="n">print_status</span><span class="p">()</span>
+<span class="mi">0</span><span class="p">:</span><span class="n">RegResultSuccess</span>
+<span class="n">Interlock</span> <span class="n">relays</span> <span class="n">off</span>
+<span class="n">Interlock</span> <span class="n">loop</span> <span class="nb">open</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="s1">&#39;0b1010&#39;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="varia">
+<h2>Varia<a class="headerlink" href="#varia" title="Permalink to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Initializing the object and setting parameters</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nkt_tools.varia</span> <span class="kn">import</span> <span class="n">Varia</span>
+<span class="n">varia</span> <span class="o">=</span> <span class="n">Varia</span><span class="p">()</span>
+<span class="n">varia</span><span class="o">.</span><span class="n">short_setpoint</span> <span class="o">=</span> <span class="mi">550</span>
+<span class="n">varia</span><span class="o">.</span><span class="n">long_setpoint</span> <span class="o">=</span> <span class="mi">600</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">varia communication properties</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">varia</span><span class="o">.</span><span class="n">portname</span>
+<span class="c1"># Out[1]: &#39;COM4&#39;</span>
+
+<span class="n">varia</span><span class="o">.</span><span class="n">device_type</span>
+<span class="c1"># Out[2]: 104</span>
+
+<span class="n">varia</span><span class="o">.</span><span class="n">module_address</span>
+<span class="c1"># Out[3]: 17</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">reading varia’s main settings</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">varia</span><span class="o">.</span><span class="n">short_setpoint</span>
+<span class="c1"># Out[4]: 550.0</span>
+
+<span class="n">varia</span><span class="o">.</span><span class="n">long_setpoint</span>
+<span class="c1"># Out[5]: 600.0</span>
+
+<span class="n">varia</span><span class="o">.</span><span class="n">nd_setpoint</span>
+<span class="c1"># Out[6]: 350.0</span>
+
+<span class="n">varia</span><span class="o">.</span><span class="n">monitor_input</span>
+<span class="c1"># 0</span>
+<span class="c1"># Out[7]: 0.0</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">These two methods print the varia’s status to the console.</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">varia</span><span class="o">.</span><span class="n">print_status</span><span class="p">()</span>
+<span class="c1"># Interlock off</span>
+<span class="c1"># Shutter sensor 1</span>
+<span class="c1"># Out[8]: &#39;0b100000010&#39;</span>
+
+<span class="n">varia</span><span class="o">.</span><span class="n">read_all_properties</span><span class="p">()</span>
+<span class="c1"># 0</span>
+<span class="c1"># Input Power =  0.0</span>
+<span class="c1"># ND Setpoint =  350.0</span>
+<span class="c1"># Long Setpoint =  430.7</span>
+<span class="c1"># Short Setpoint =  420.7</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">This method demonstrates the output type of various registerRead calls from the DLL. This call is made to the system status register which is meant to return a byte array (x02x01).</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">varia</span><span class="o">.</span><span class="n">demo_nkt_registerReads</span><span class="p">()</span>
+<span class="c1"># registerRead:  (0, b&#39;\x02\x01&#39;)</span>
+<span class="c1"># registerReadU8:  (0, 2)</span>
+<span class="c1"># registerReadS8:  (0, 2)</span>
+<span class="c1"># registerReadU16:  (0, 258)</span>
+<span class="c1"># registerReadU32:  (8, 258)</span>
+<span class="c1"># registerReadF32:  (8, 3.615350037958028e-43)</span>
+<span class="c1"># registerReadAscii:  (0, b&#39;\x02\x01&#39;)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="guide.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="development_notes.html" class="btn btn-neutral float-right" title="Development Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

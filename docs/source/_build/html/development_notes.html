@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development Notes &mdash; nkt_tools 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            nkt_tools
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nkt_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Development Notes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/development_notes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-notes">
+<h1>Development Notes<a class="headerlink" href="#development-notes" title="Permalink to this heading"></a></h1>
+<p class="linemarker linemarker-5">In this section, I will walkthrough the process I used to build the <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> packages. This walkthrough is meant to serve as an example for users hoping to automate equipment using python. For example, this package is imported into my larger catalysis automation project, <a class="reference external" href="https://catalight.readthedocs.io/en/latest/">catalight</a>.</p>
+<p class="linemarker linemarker-7">Users interested in simply using this package need not read the following section. This is only meant for educational  purposes, but not necessary for use of <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a>.</p>
+<section id="downloading-the-software-development-kit-sdk">
+<h2>Downloading the Software Development Kit (SDK)<a class="headerlink" href="#downloading-the-software-development-kit-sdk" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-12">To begin, we first need to download the software development kit from <a class="reference external" href="https://www.nktphotonics.com/support/">NKT’s website</a> (Note: the relevant files are included in the <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> package). This will download a zip file, the contents of which include:</p>
+<figure class="align-default">
+<img alt="_images/unzip.png" src="_images/unzip.png" />
+</figure>
+<p class="linemarker linemarker-16">After running the executable within, the following files will be available:</p>
+<figure class="align-default">
+<img alt="_images/install.png" src="_images/install.png" />
+</figure>
+<p class="linemarker linemarker-20">The most important content inside the installed directory include the Examples folder, NKTPDLL folder, and SDK Instruction Manual. The NKTPDLL folder contains the actual NKT toolbox used to automate NKT components and comes wrapped inside <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a>. The DLL gets imported through <a class="reference internal" href="_autosummary/nkt_tools.NKTP_DLL.html#module-nkt_tools.NKTP_DLL" title="nkt_tools.NKTP_DLL"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.NKTP_DLL</span></code></a>. The examples folder provides usage of the DLL in multiple languages, including python. These examples have been included in the nkt_tools repo under manuals/dll_examples. Finally, the SDK instruction manual demonstrates how to communicate with NKT equipiment, what is and how to use the DLL, and how to address specific equipment. The <a class="reference download internal" download="" href="_downloads/86af7626c8c607ecd09942f08ac0ae20/SDK%20Instruction%20manual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">instructions</span> <span class="pre">manual</span></code></a> and the <a class="reference download internal" download="" href="_downloads/f663b160496ec0eebd418f67b77f76bc/NKTPDLL%20Reference%20manual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">DLL</span> <span class="pre">reference</span> <span class="pre">guide</span></code></a> are both available under nkt_tools/manuals.</p>
+</section>
+<section id="communication-through-telegrams">
+<h2>Communication Through Telegrams<a class="headerlink" href="#communication-through-telegrams" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-25">The <a class="reference download internal" download="" href="_downloads/86af7626c8c607ecd09942f08ac0ae20/SDK%20Instruction%20manual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">instructions</span> <span class="pre">manual</span></code></a> first describes the basic communcation procedure used to talk with NKT hardware:</p>
+<figure class="align-default">
+<img alt="_images/manual_telegram.png" src="_images/manual_telegram.png" />
+</figure>
+<p class="linemarker linemarker-29">Telegrams, specifically formated arrays of bytes, are sent back and forth between the computer and hardware. Exact bytes and specific locations in the array correspond to certain actions or identities of the hardware and control options. Here is an example of communcation utilizing a telegram.</p>
+<figure class="align-default">
+<img alt="_images/manual_comm_example.png" src="_images/manual_comm_example.png" />
+</figure>
+</section>
+<section id="communcation-through-the-dll">
+<h2>Communcation Through the DLL<a class="headerlink" href="#communcation-through-the-dll" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-36">Its not necessary to learn how to communicate with the hardware in this way, as the DLL abstracts this process away to a great degree. The NKT instruction manaul does provide a good overview of the process, and many users will hopefully find a careful read over the manual to be very informative. For practical purposes, the DLL wraps over the creation of telegrams to simplify experimental communication, as described in the manual:</p>
+<figure class="align-default">
+<img alt="_images/nktpdll.png" src="_images/nktpdll.png" />
+</figure>
+<p class="linemarker linemarker-40">Below is an example of turning on an NKT Extreme/Fianium laser using the DLL through python instead of creating a telegram from scratch. This example is provided from the original SDK download and posted in the repo under <a class="reference download internal" download="" href="_downloads/a1214076486a704040b446816efdce7b/Extreme_Emission_On.py"><code class="xref download docutils literal notranslate"><span class="pre">nkt_tools/manuals/dll_examples/Extreme_Emission_On.py</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">NKTP_DLL</span> <span class="k">as</span> <span class="nn">nkt</span>
+<span class="n">nkt</span><span class="o">.</span><span class="n">registerWriteU8</span><span class="p">(</span><span class="s1">&#39;COM27&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-47">Here is a break down of how the registerWrite function works and where different information is found within the two manuals:</p>
+<figure class="align-default">
+<img alt="_images/registerWrite_explained.png" src="_images/registerWrite_explained.png" />
+</figure>
+</section>
+<section id="writing-nkt-tools">
+<h2>Writing nkt_tools<a class="headerlink" href="#writing-nkt-tools" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-54">Up to this point, these are the exact tools provided by and downloaded from NKT. All the equipment could be operated using this alone, but the user would constantly need to refer to the user manual to detemine the correct device and register address for each command. Additionally, while most commands accept integer values as input, some parameters read/write byte arrays which many users will not be familiar with this. The purpose of <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> is to wrap around the NKTPDLL to provide an even more simple interface that doesn’t require reference to the manual to operate.</p>
+<section id="importing-the-dll">
+<h3>Importing the DLL<a class="headerlink" href="#importing-the-dll" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-59">One major step in setting up the DLL when following the SDK installation instructions is installing the DLL path. The installer will determine the user’s OS and link the relevant DLL folder somewhere on the user’s computer for later access. The DLL can then be called without the full path as it is essentially stored in the device’s configuration. Within <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a>, I have removed the need for the user to explicity install the DLL files using the installer by providing the DLL folder inside of the repository. The <a class="reference internal" href="_autosummary/nkt_tools.NKTP_DLL.html#module-nkt_tools.NKTP_DLL" title="nkt_tools.NKTP_DLL"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.NKTP_DLL</span></code></a> module still needs to point to the correct DLL file. To accomplish this, I added the following lines to the code provided by NKT:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dllFolder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">sizeof</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_voidp</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading x86 DLL from:&#39;</span><span class="p">,</span> <span class="n">dllFolder</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\NKTPDLL\x86\NKTPDLL.dll&#39;</span><span class="p">)</span>
+        <span class="n">NKTPDLL</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span> <span class="n">dllFolder</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\NKTPDLL\x86\NKTPDLL.dll&#39;</span> <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading x64 DLL from:&#39;</span><span class="p">,</span> <span class="n">dllFolder</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\NKTPDLL\x64\NKTPDLL.dll&#39;</span><span class="p">)</span>
+        <span class="n">NKTPDLL</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span> <span class="n">dllFolder</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\NKTPDLL\x64\NKTPDLL.dll&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-71">This code block determines the users OS and points to the relevant DLL folder located within the same directory.</p>
+</section>
+<section id="autosearching-for-equipment">
+<h3>Autosearching for equipment<a class="headerlink" href="#autosearching-for-equipment" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-76">Next, I used the <a class="reference download internal" download="" href="_downloads/78a7eda9f5ebd31a670690baa17ee24f/Find_Modules_Simple.py"><code class="xref download docutils literal notranslate"><span class="pre">dll_examples/Find_Modules_Simple.py</span></code></a> example provided by NKT to learn how to automatically find connected NKT devices. The first two parameters when using any registerRead/registerWrite command are the module COM port and the device register. The COM port address depends on the physical port the equipment is connected to on your PC, while the device register is a number corresponding to the type of instrument (e.g. Extreme/Fianium vs Varia)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NKTP_DLL</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Find modules on all existing and accessible ports - Might take a few seconds to complete.....&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">openPorts</span><span class="p">(</span><span class="n">getAllPorts</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># All ports returned by the getOpenPorts function has modules (ports with no modules will automatically be closed)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Following ports has modules:&#39;</span><span class="p">,</span> <span class="n">getOpenPorts</span><span class="p">())</span>
+
+<span class="c1"># Traverse the getOpenPorts list and retrieve found modules via the deviceGetAllTypes function</span>
+<span class="n">portlist</span> <span class="o">=</span> <span class="n">getOpenPorts</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">portName</span> <span class="ow">in</span> <span class="n">portlist</span><span class="p">:</span>
+    <span class="n">result</span><span class="p">,</span> <span class="n">devList</span> <span class="o">=</span> <span class="n">deviceGetAllTypes</span><span class="p">(</span><span class="n">portName</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">devId</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">devList</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">devList</span><span class="p">[</span><span class="n">devId</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Comport:&#39;</span><span class="p">,</span><span class="n">portName</span><span class="p">,</span><span class="s1">&#39;Device type:&#39;</span><span class="p">,</span><span class="s2">&quot;0x</span><span class="si">%0.2X</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">devList</span><span class="p">[</span><span class="n">devId</span><span class="p">],</span><span class="s1">&#39;at address:&#39;</span><span class="p">,</span><span class="n">devId</span><span class="p">)</span>
+
+<span class="c1"># Close all ports</span>
+<span class="n">closeResult</span> <span class="o">=</span> <span class="n">closePorts</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Close result: &#39;</span><span class="p">,</span> <span class="n">PortResultTypes</span><span class="p">(</span><span class="n">closeResult</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-102">I essentially copy this demo code within the init function of the <a class="reference internal" href="_autosummary/nkt_tools.extreme.Extreme.html#nkt_tools.extreme.Extreme" title="nkt_tools.extreme.Extreme"><code class="xref py py-class docutils literal notranslate"><span class="pre">Extreme</span></code></a> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open all ports</span>
+<span class="n">nkt</span><span class="o">.</span><span class="n">openPorts</span><span class="p">(</span><span class="n">nkt</span><span class="o">.</span><span class="n">getAllPorts</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Get open NKT ports</span>
+<span class="n">portlist</span> <span class="o">=</span> <span class="n">nkt</span><span class="o">.</span><span class="n">getOpenPorts</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">extreme_found</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># This is added to check for duplicate lasers</span>
+
+<span class="k">for</span> <span class="n">portName</span> <span class="ow">in</span> <span class="n">portlist</span><span class="p">:</span>  <span class="c1"># Sweep open nkt ports</span>
+    <span class="c1"># get binary devList of connected nkt devices</span>
+    <span class="n">comm_result</span><span class="p">,</span> <span class="n">devList</span> <span class="o">=</span> <span class="n">nkt</span><span class="o">.</span><span class="n">deviceGetAllTypes</span><span class="p">(</span><span class="n">portName</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-117">Up to this point, almost everything has been identical to the example. Now, I just grab the device type from a specific address and check that it is the correct one. Then I assign the device type and module address as attributes of the object instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get byte at location 15 (device address for extreme/fianium)</span>
+<span class="n">device_type</span> <span class="o">=</span> <span class="n">devList</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">module_address</span><span class="p">]</span>
+
+<span class="c1"># Double check device_type matches extreme/fianium laser</span>
+<span class="k">if</span> <span class="nb">hex</span><span class="p">(</span><span class="n">device_type</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;0x60&#39;</span><span class="p">:</span>  <span class="c1"># 96 == 0x60 in hex</span>
+    <span class="k">if</span> <span class="n">extreme_found</span><span class="p">:</span>  <span class="c1"># If extreme found on other port, error</span>
+        <span class="n">err_msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&#39;&#39;Multiple NKT Lasers found on computer.</span>
+<span class="s1">        COM port 1 = </span><span class="si">%s</span>
+<span class="s1">        COM port 2 = </span><span class="si">%s</span>
+<span class="s1">        Please initialize Extreme class with designated </span><span class="se">\</span>
+<span class="s1">        portname to avoid conflict&#39;&#39;&#39;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">portname</span><span class="p">,</span> <span class="n">portName</span><span class="p">))</span>
+
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># If this is first laser found,</span>
+        <span class="n">extreme_found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_portname</span> <span class="o">=</span> <span class="n">portName</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device_type</span> <span class="o">=</span> <span class="n">device_type</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-141">The init function of the <a class="reference internal" href="_autosummary/nkt_tools.varia.Varia.html#nkt_tools.varia.Varia" title="nkt_tools.varia.Varia"><code class="xref py py-class docutils literal notranslate"><span class="pre">Varia</span></code></a> is very similar, except that the Varia can had several different device addresses. In that init function, I loop through the possible decive addresses searching for a device type that matches the varia (0x68).</p>
+</section>
+<section id="writing-equipment-control-methods">
+<h3>Writing equipment control methods<a class="headerlink" href="#writing-equipment-control-methods" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-146">For the remainder of the code, I simply translated the options given by the DLL manual into methods for each class. Heres an example:</p>
+<p class="linemarker linemarker-148">The manual provides this description of how to access the NIM delay setting on the NKT Extreme/Fianium</p>
+<figure class="align-default">
+<img alt="_images/manual_nim_delay.png" src="_images/manual_nim_delay.png" />
+</figure>
+<p class="linemarker linemarker-153">For the laser, I seperate read and write operations as an additional barrier to a user unintentionally setting dangerous conditions on the laser.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Here we read the nim_delay as a property of the object</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">nim_delay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">register_address</span> <span class="o">=</span> <span class="mh">0x38</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mf">9e-12</span>  <span class="c1"># Step size for delay is 9 ps</span>
+    <span class="n">comm_result</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="n">nkt</span><span class="o">.</span><span class="n">registerReadU16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">portname</span><span class="p">,</span>
+                                            <span class="bp">self</span><span class="o">.</span><span class="n">module_address</span><span class="p">,</span>
+                                            <span class="n">register_address</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_nim_delay</span> <span class="o">=</span> <span class="n">delay</span> <span class="o">*</span> <span class="n">step</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nim_delay</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">The setter function allows the user to write a new value for the nim delay</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_nim_delay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nim_delay</span><span class="p">):</span>
+    <span class="n">register_address</span> <span class="o">=</span> <span class="mh">0x38</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mf">9e-12</span>  <span class="c1"># Step size for delay is 9 ps</span>
+    <span class="n">int_delay</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nim_delay</span><span class="o">/</span><span class="n">step</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">int_delay</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">int_delay</span> <span class="o">&lt;=</span> <span class="mi">1023</span><span class="p">):</span>
+        <span class="n">nkt</span><span class="o">.</span><span class="n">registerWriteU16</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">portname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">module_address</span><span class="p">,</span>
+                             <span class="n">register_address</span><span class="p">,</span> <span class="n">int_delay</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NIM Delay Value Out of Range (0 &lt;= Delay &lt;= 9.207e-9)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="linemarker linemarker-181">The essential parts in both cases are</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-183">The register address is stored within the calling function. A user doesn’t need to refer to the manual to remember the NIM delay address.</p></li>
+<li><p class="linemarker linemarker-184">Any number conversion is handled within the function so that the user can provide the most logical unit. Here the user enters the delay time in seconds rather than an integer value from 0 to 1023.</p></li>
+</ol>
+<p class="linemarker linemarker-186">For the Varia, almost everything works the same, except that all properties allow the user to get/set the value instead of having explicit setter functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nkt_tools.extreme</span> <span class="kn">import</span> <span class="n">Extreme</span>
+
+<span class="n">laser</span> <span class="o">=</span> <span class="n">Extreme</span><span class="p">()</span>
+<span class="n">laser</span><span class="o">.</span><span class="n">set_power</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">current_power</span> <span class="o">=</span> <span class="n">laser</span><span class="o">.</span><span class="n">power_level</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nkt_tools.varia</span> <span class="kn">import</span> <span class="n">Varia</span>
+
+<span class="n">varia</span> <span class="o">=</span> <span class="n">Varia</span><span class="p">()</span>
+<span class="n">varia</span><span class="o">.</span><span class="n">short_setpoint</span> <span class="o">=</span> <span class="mi">490</span>
+<span class="n">current_filter_power</span> <span class="o">=</span> <span class="n">varia</span><span class="o">.</span><span class="n">short_setpoint</span>
+</pre></div>
+</div>
+<section id="how-i-tried-chatgpt-to-automatically-write-other-nkt-modules">
+<span id="chatgpt"></span><h4>How I Tried ChatGPT to Automatically Write Other NKT Modules<a class="headerlink" href="#how-i-tried-chatgpt-to-automatically-write-other-nkt-modules" title="Permalink to this heading"></a></h4>
+<p class="linemarker linemarker-208">At this point, the process of creating a new module is fairly formulaic. Scan the manual for register addresses and write class methods that read/write to those registers with more informative naming conventions. I thought this could be a perfect job for AI to help with since I little personal motivation to write modules for hardware our lab does not own. I attempted to leverage the ChatGPT web interface to write this new modules with limited success.</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-210">I realized quickly that ChatGPT puts a limit on the number of lines of text that can be sent at once. I utilized a <a class="reference external" href="https://chatgpt-prompt-splitter.jjdiaz.dev/">prompt text splitter</a> to split my requests into 47 seperate prompt, which I then copied and pasted into chatGPT.</p></li>
+<li><p class="linemarker linemarker-211">I sent ChatGPT the manual entries in the DLL instruction manual for the extreme/varia followed by my python code. I saved the entry in the repository (<a class="reference download internal" download="" href="_downloads/3fd197741938cf22c551694f8aca3d6f/chatgpt_auto_nkt_tools_prompt.docx"><code class="xref download docutils literal notranslate"><span class="pre">chatgpt_auto_nkt_tools_prompt.docx</span></code></a>).</p></li>
+<li><p class="linemarker linemarker-212">ChatGPT next output a fairly reasonable python file (<code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.chatgpt_select</span></code>). Without demoing this module on a real system, it appears that it may function correctly.</p></li>
+<li><p class="linemarker linemarker-213">I next sent the manual entry for the NKT Extend UV tool and chatGPT produced the <code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.chatgpt_extend_uv</span></code> module. This version was messier than the orginal output for the Select, and I found chatGPT was producing a lot of style and format variation between modules. For this reason, I stopped trying to create these AI built modules.</p></li>
+<li><p class="linemarker linemarker-214">I saved both AI built modules (Select and Extend UV) with the prefix “chatgpt” so so future users will know the modules were AI generated, but could try to use them as starting points if they’d like to.</p></li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

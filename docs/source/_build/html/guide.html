@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide &mdash; nkt_tools 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Welcome to nkt_tools’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            nkt_tools
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nkt_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-7"><a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> provides python based tools for the automation of NKT Photonics devices. <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> utilizes the NKTPDLL provided by NKT, wrapping over the DLL with simplified python classes (e.g. <a class="reference internal" href="_autosummary/nkt_tools.extreme.Extreme.html#nkt_tools.extreme.Extreme" title="nkt_tools.extreme.Extreme"><code class="xref py py-class docutils literal notranslate"><span class="pre">Extreme</span></code></a>, <a class="reference internal" href="_autosummary/nkt_tools.varia.Varia.html#nkt_tools.varia.Varia" title="nkt_tools.varia.Varia"><code class="xref py py-class docutils literal notranslate"><span class="pre">Varia</span></code></a>).</p>
+<p class="linemarker linemarker-9">Without <a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a>, using the NKTPDLL requires reading/writing formatted values to specific byte registers with commands like <a class="reference internal" href="_autosummary/nkt_tools.NKTP_DLL.registerWriteU16.html#nkt_tools.NKTP_DLL.registerWriteU16" title="nkt_tools.NKTP_DLL.registerWriteU16"><code class="xref py py-func docutils literal notranslate"><span class="pre">nkt_tools.NKTP_DLL.registerWriteU16()</span></code></a>, at times requiring the user to tranlate bytes to some values according to the manual.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">NKTP_DLL</span> <span class="k">as</span> <span class="nn">nkt</span>
+<span class="n">nkt</span><span class="o">.</span><span class="n">registerWriteU8</span><span class="p">(</span><span class="s1">&#39;COM27&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-16"><a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> transforms this into a more simple verion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nkt_tools.extreme</span> <span class="kn">import</span> <span class="n">Extreme</span>
+<span class="n">laser</span> <span class="o">=</span> <span class="n">Extreme</span><span class="p">()</span>
+<span class="n">laser</span><span class="o">.</span><span class="n">set_emission</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-25">There is also a Matlab package to control an NKT Laser+Varia if Matlab is you cup of tea (<a class="reference external" href="https://github.com/villadsegede/NKTcontrol">https://github.com/villadsegede/NKTcontrol</a>)</p>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-29"><a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> functions as a stand alone package. Necessary file for connecting with NKT hardware is included in the package already, so the user should only need to pip install the package.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">nkt_tools</span>
+</pre></div>
+</div>
+</section>
+<section id="extreme-fianium">
+<h2>Extreme/Fianium<a class="headerlink" href="#extreme-fianium" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nkt_tools.extreme</span> <span class="kn">import</span> <span class="n">Extreme</span>
+<span class="n">laser</span> <span class="o">=</span> <span class="n">Extreme</span><span class="p">()</span>
+<span class="n">laser</span><span class="o">.</span><span class="n">set_emission</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="varia">
+<h2>Varia<a class="headerlink" href="#varia" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nkt_tools.varia</span> <span class="kn">import</span> <span class="n">Varia</span>
+<span class="n">varia</span> <span class="o">=</span> <span class="n">Varia</span><span class="p">()</span>
+<span class="n">varia</span><span class="o">.</span><span class="n">long_setpoint</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">varia</span><span class="o">.</span><span class="n">short_setpoint</span> <span class="o">=</span> <span class="mi">550</span>
+</pre></div>
+</div>
+</section>
+<section id="other-nkt-devices">
+<h2>Other NKT devices<a class="headerlink" href="#other-nkt-devices" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-57">So far, I’ve only written the package to support NKT Varia and Extreme/Fianium lasers. I don’t have plans to expand this the library to all supported NKT products, but addition of new devices should be relatively straight forward. To assist interested developers with this process, I’ve written <a class="reference internal" href="development_notes.html"><span class="doc">development notes</span></a> detailing the process I went through to develop the <a class="reference internal" href="_autosummary/nkt_tools.varia.html#module-nkt_tools.varia" title="nkt_tools.varia"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Varia</span></code></a> and <a class="reference internal" href="_autosummary/nkt_tools.extreme.html#module-nkt_tools.extreme" title="nkt_tools.extreme"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extreme</span></code></a> modules. My hope is that these modules serve as examples for interested devleopers to make it easier to create new modules for other devices supported by the NKTPDLL. If you do write a new module, please submit a pull request on GitHub so it can be added to the main package!</p>
+<p class="linemarker linemarker-59">Additionally, the entire DLL can be accessed through <a class="reference internal" href="_autosummary/nkt_tools.NKTP_DLL.html#module-nkt_tools.NKTP_DLL" title="nkt_tools.NKTP_DLL"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.NKTP_DLL</span></code></a>. All supported devices can be interacted with through registerRead/Write commands by following the <a class="reference download internal" download="" href="_downloads/86af7626c8c607ecd09942f08ac0ae20/SDK%20Instruction%20manual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">instruction</span> <span class="pre">manual</span></code></a>.</p>
+<p class="linemarker linemarker-61">I tried to leverage AI to automatically generate some modules, but found the formatting produced to be too inconsistent. I posted notes about my attempt in the <a class="reference internal" href="development_notes.html#chatgpt"><span class="std std-ref">How I Tried ChatGPT to Automatically Write Other NKT Modules</span></a> section of the <a class="reference internal" href="development_notes.html"><span class="doc">Development Notes</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to nkt_tools’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nkt_tools.NKTP_DLL.registerWriteReadS32 &mdash; nkt_tools 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nkt_tools.NKTP_DLL.registerWriteReadS64" href="nkt_tools.NKTP_DLL.registerWriteReadS64.html" />
+    <link rel="prev" title="nkt_tools.NKTP_DLL.registerWriteReadS16" href="nkt_tools.NKTP_DLL.registerWriteReadS16.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            nkt_tools
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nkt_tools.html">﻿nkt_tools</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nkt_tools.NKTP_DLL.html">nkt_tools.NKTP_DLL</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceModeTypes.html">nkt_tools.NKTP_DLL.DeviceModeTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceResultTypes.html">nkt_tools.NKTP_DLL.DeviceResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceStatusTypes.html">nkt_tools.NKTP_DLL.DeviceStatusTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.P2PPortResultTypes.html">nkt_tools.NKTP_DLL.P2PPortResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.ParamSetUnitTypes.html">nkt_tools.NKTP_DLL.ParamSetUnitTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.PortResultTypes.html">nkt_tools.NKTP_DLL.PortResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.PortStatusTypes.html">nkt_tools.NKTP_DLL.PortStatusTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterDataTypes.html">nkt_tools.NKTP_DLL.RegisterDataTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterPriorityTypes.html">nkt_tools.NKTP_DLL.RegisterPriorityTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterResultTypes.html">nkt_tools.NKTP_DLL.RegisterResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterStatusTypes.html">nkt_tools.NKTP_DLL.RegisterStatusTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.closePorts.html">nkt_tools.NKTP_DLL.closePorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceCreate.html">nkt_tools.NKTP_DLL.deviceCreate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceExists.html">nkt_tools.NKTP_DLL.deviceExists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetAllTypes.html">nkt_tools.NKTP_DLL.deviceGetAllTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetBootloaderVersion.html">nkt_tools.NKTP_DLL.deviceGetBootloaderVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetBootloaderVersionStr.html">nkt_tools.NKTP_DLL.deviceGetBootloaderVersionStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetErrorCode.html">nkt_tools.NKTP_DLL.deviceGetErrorCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetFirmwareVersion.html">nkt_tools.NKTP_DLL.deviceGetFirmwareVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetFirmwareVersionStr.html">nkt_tools.NKTP_DLL.deviceGetFirmwareVersionStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetLive.html">nkt_tools.NKTP_DLL.deviceGetLive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetMode.html">nkt_tools.NKTP_DLL.deviceGetMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetModuleSerialNumberStr.html">nkt_tools.NKTP_DLL.deviceGetModuleSerialNumberStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPCBSerialNumberStr.html">nkt_tools.NKTP_DLL.deviceGetPCBSerialNumberStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPCBVersion.html">nkt_tools.NKTP_DLL.deviceGetPCBVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPartNumberStr.html">nkt_tools.NKTP_DLL.deviceGetPartNumberStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetStatusBits.html">nkt_tools.NKTP_DLL.deviceGetStatusBits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetType.html">nkt_tools.NKTP_DLL.deviceGetType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceRemove.html">nkt_tools.NKTP_DLL.deviceRemove</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceRemoveAll.html">nkt_tools.NKTP_DLL.deviceRemoveAll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceSetLive.html">nkt_tools.NKTP_DLL.deviceSetLive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getAllPorts.html">nkt_tools.NKTP_DLL.getAllPorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getLegacyBusScanning.html">nkt_tools.NKTP_DLL.getLegacyBusScanning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getOpenPorts.html">nkt_tools.NKTP_DLL.getOpenPorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getPortErrorMsg.html">nkt_tools.NKTP_DLL.getPortErrorMsg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getPortStatus.html">nkt_tools.NKTP_DLL.getPortStatus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.openPorts.html">nkt_tools.NKTP_DLL.openPorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortAdd.html">nkt_tools.NKTP_DLL.pointToPointPortAdd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortDel.html">nkt_tools.NKTP_DLL.pointToPointPortDel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortGet.html">nkt_tools.NKTP_DLL.pointToPointPortGet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerCreate.html">nkt_tools.NKTP_DLL.registerCreate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerExists.html">nkt_tools.NKTP_DLL.registerExists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerGetAll.html">nkt_tools.NKTP_DLL.registerGetAll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRead.html">nkt_tools.NKTP_DLL.registerRead</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadAscii.html">nkt_tools.NKTP_DLL.registerReadAscii</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadF32.html">nkt_tools.NKTP_DLL.registerReadF32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadF64.html">nkt_tools.NKTP_DLL.registerReadF64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS16.html">nkt_tools.NKTP_DLL.registerReadS16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS32.html">nkt_tools.NKTP_DLL.registerReadS32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS64.html">nkt_tools.NKTP_DLL.registerReadS64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS8.html">nkt_tools.NKTP_DLL.registerReadS8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU16.html">nkt_tools.NKTP_DLL.registerReadU16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU32.html">nkt_tools.NKTP_DLL.registerReadU32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU64.html">nkt_tools.NKTP_DLL.registerReadU64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU8.html">nkt_tools.NKTP_DLL.registerReadU8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRemove.html">nkt_tools.NKTP_DLL.registerRemove</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRemoveAll.html">nkt_tools.NKTP_DLL.registerRemoveAll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWrite.html">nkt_tools.NKTP_DLL.registerWrite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteAscii.html">nkt_tools.NKTP_DLL.registerWriteAscii</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteF32.html">nkt_tools.NKTP_DLL.registerWriteF32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteF64.html">nkt_tools.NKTP_DLL.registerWriteF64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteRead.html">nkt_tools.NKTP_DLL.registerWriteRead</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadAscii.html">nkt_tools.NKTP_DLL.registerWriteReadAscii</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadF32.html">nkt_tools.NKTP_DLL.registerWriteReadF32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadF64.html">nkt_tools.NKTP_DLL.registerWriteReadF64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS16.html">nkt_tools.NKTP_DLL.registerWriteReadS16</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nkt_tools.NKTP_DLL.registerWriteReadS32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS64.html">nkt_tools.NKTP_DLL.registerWriteReadS64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS8.html">nkt_tools.NKTP_DLL.registerWriteReadS8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU16.html">nkt_tools.NKTP_DLL.registerWriteReadU16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU32.html">nkt_tools.NKTP_DLL.registerWriteReadU32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU64.html">nkt_tools.NKTP_DLL.registerWriteReadU64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU8.html">nkt_tools.NKTP_DLL.registerWriteReadU8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS16.html">nkt_tools.NKTP_DLL.registerWriteS16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS32.html">nkt_tools.NKTP_DLL.registerWriteS32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS64.html">nkt_tools.NKTP_DLL.registerWriteS64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS8.html">nkt_tools.NKTP_DLL.registerWriteS8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU16.html">nkt_tools.NKTP_DLL.registerWriteU16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU32.html">nkt_tools.NKTP_DLL.registerWriteU32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU64.html">nkt_tools.NKTP_DLL.registerWriteU64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU8.html">nkt_tools.NKTP_DLL.registerWriteU8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrDeviceInfo.html">nkt_tools.NKTP_DLL.setCallbackPtrDeviceInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrPortInfo.html">nkt_tools.NKTP_DLL.setCallbackPtrPortInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrRegisterInfo.html">nkt_tools.NKTP_DLL.setCallbackPtrRegisterInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setLegacyBusScanning.html">nkt_tools.NKTP_DLL.setLegacyBusScanning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortData.html">nkt_tools.NKTP_DLL.pointToPointPortData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.tDateTimeStruct.html">nkt_tools.NKTP_DLL.tDateTimeStruct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.tParamSetStruct.html">nkt_tools.NKTP_DLL.tParamSetStruct</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.extreme.html">nkt_tools.extreme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.varia.html">nkt_tools.varia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nkt_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="nkt_tools.html">﻿nkt_tools</a></li>
+          <li class="breadcrumb-item"><a href="nkt_tools.NKTP_DLL.html">nkt_tools.NKTP_DLL</a></li>
+      <li class="breadcrumb-item active">nkt_tools.NKTP_DLL.registerWriteReadS32</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/nkt_tools.NKTP_DLL.registerWriteReadS32.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nkt-tools-nktp-dll-registerwritereads32">
+<h1>nkt_tools.NKTP_DLL.registerWriteReadS32<a class="headerlink" href="#nkt-tools-nktp-dll-registerwritereads32" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="nkt_tools.NKTP_DLL.registerWriteReadS32">
+<span class="sig-prename descclassname"><span class="pre">nkt_tools.NKTP_DLL.</span></span><span class="sig-name descname"><span class="pre">registerWriteReadS32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">portname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">devId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writeValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.NKTP_DLL.registerWriteReadS32" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nkt_tools.NKTP_DLL.registerWriteReadS16.html" class="btn btn-neutral float-left" title="nkt_tools.NKTP_DLL.registerWriteReadS16" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nkt_tools.NKTP_DLL.registerWriteReadS64.html" class="btn btn-neutral float-right" title="nkt_tools.NKTP_DLL.registerWriteReadS64" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

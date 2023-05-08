@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nkt_tools.NKTP_DLL &mdash; nkt_tools 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nkt_tools.NKTP_DLL.DeviceModeTypes" href="nkt_tools.NKTP_DLL.DeviceModeTypes.html" />
+    <link rel="prev" title="﻿nkt_tools" href="nkt_tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            nkt_tools
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nkt_tools.html">﻿nkt_tools</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">nkt_tools.NKTP_DLL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceModeTypes.html">nkt_tools.NKTP_DLL.DeviceModeTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceResultTypes.html">nkt_tools.NKTP_DLL.DeviceResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceStatusTypes.html">nkt_tools.NKTP_DLL.DeviceStatusTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.P2PPortResultTypes.html">nkt_tools.NKTP_DLL.P2PPortResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.ParamSetUnitTypes.html">nkt_tools.NKTP_DLL.ParamSetUnitTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.PortResultTypes.html">nkt_tools.NKTP_DLL.PortResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.PortStatusTypes.html">nkt_tools.NKTP_DLL.PortStatusTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterDataTypes.html">nkt_tools.NKTP_DLL.RegisterDataTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterPriorityTypes.html">nkt_tools.NKTP_DLL.RegisterPriorityTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterResultTypes.html">nkt_tools.NKTP_DLL.RegisterResultTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterStatusTypes.html">nkt_tools.NKTP_DLL.RegisterStatusTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.closePorts.html">nkt_tools.NKTP_DLL.closePorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceCreate.html">nkt_tools.NKTP_DLL.deviceCreate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceExists.html">nkt_tools.NKTP_DLL.deviceExists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetAllTypes.html">nkt_tools.NKTP_DLL.deviceGetAllTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetBootloaderVersion.html">nkt_tools.NKTP_DLL.deviceGetBootloaderVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetBootloaderVersionStr.html">nkt_tools.NKTP_DLL.deviceGetBootloaderVersionStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetErrorCode.html">nkt_tools.NKTP_DLL.deviceGetErrorCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetFirmwareVersion.html">nkt_tools.NKTP_DLL.deviceGetFirmwareVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetFirmwareVersionStr.html">nkt_tools.NKTP_DLL.deviceGetFirmwareVersionStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetLive.html">nkt_tools.NKTP_DLL.deviceGetLive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetMode.html">nkt_tools.NKTP_DLL.deviceGetMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetModuleSerialNumberStr.html">nkt_tools.NKTP_DLL.deviceGetModuleSerialNumberStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPCBSerialNumberStr.html">nkt_tools.NKTP_DLL.deviceGetPCBSerialNumberStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPCBVersion.html">nkt_tools.NKTP_DLL.deviceGetPCBVersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPartNumberStr.html">nkt_tools.NKTP_DLL.deviceGetPartNumberStr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetStatusBits.html">nkt_tools.NKTP_DLL.deviceGetStatusBits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetType.html">nkt_tools.NKTP_DLL.deviceGetType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceRemove.html">nkt_tools.NKTP_DLL.deviceRemove</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceRemoveAll.html">nkt_tools.NKTP_DLL.deviceRemoveAll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceSetLive.html">nkt_tools.NKTP_DLL.deviceSetLive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getAllPorts.html">nkt_tools.NKTP_DLL.getAllPorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getLegacyBusScanning.html">nkt_tools.NKTP_DLL.getLegacyBusScanning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getOpenPorts.html">nkt_tools.NKTP_DLL.getOpenPorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getPortErrorMsg.html">nkt_tools.NKTP_DLL.getPortErrorMsg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.getPortStatus.html">nkt_tools.NKTP_DLL.getPortStatus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.openPorts.html">nkt_tools.NKTP_DLL.openPorts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortAdd.html">nkt_tools.NKTP_DLL.pointToPointPortAdd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortDel.html">nkt_tools.NKTP_DLL.pointToPointPortDel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortGet.html">nkt_tools.NKTP_DLL.pointToPointPortGet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerCreate.html">nkt_tools.NKTP_DLL.registerCreate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerExists.html">nkt_tools.NKTP_DLL.registerExists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerGetAll.html">nkt_tools.NKTP_DLL.registerGetAll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRead.html">nkt_tools.NKTP_DLL.registerRead</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadAscii.html">nkt_tools.NKTP_DLL.registerReadAscii</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadF32.html">nkt_tools.NKTP_DLL.registerReadF32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadF64.html">nkt_tools.NKTP_DLL.registerReadF64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS16.html">nkt_tools.NKTP_DLL.registerReadS16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS32.html">nkt_tools.NKTP_DLL.registerReadS32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS64.html">nkt_tools.NKTP_DLL.registerReadS64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS8.html">nkt_tools.NKTP_DLL.registerReadS8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU16.html">nkt_tools.NKTP_DLL.registerReadU16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU32.html">nkt_tools.NKTP_DLL.registerReadU32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU64.html">nkt_tools.NKTP_DLL.registerReadU64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU8.html">nkt_tools.NKTP_DLL.registerReadU8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRemove.html">nkt_tools.NKTP_DLL.registerRemove</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRemoveAll.html">nkt_tools.NKTP_DLL.registerRemoveAll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWrite.html">nkt_tools.NKTP_DLL.registerWrite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteAscii.html">nkt_tools.NKTP_DLL.registerWriteAscii</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteF32.html">nkt_tools.NKTP_DLL.registerWriteF32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteF64.html">nkt_tools.NKTP_DLL.registerWriteF64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteRead.html">nkt_tools.NKTP_DLL.registerWriteRead</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadAscii.html">nkt_tools.NKTP_DLL.registerWriteReadAscii</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadF32.html">nkt_tools.NKTP_DLL.registerWriteReadF32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadF64.html">nkt_tools.NKTP_DLL.registerWriteReadF64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS16.html">nkt_tools.NKTP_DLL.registerWriteReadS16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS32.html">nkt_tools.NKTP_DLL.registerWriteReadS32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS64.html">nkt_tools.NKTP_DLL.registerWriteReadS64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS8.html">nkt_tools.NKTP_DLL.registerWriteReadS8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU16.html">nkt_tools.NKTP_DLL.registerWriteReadU16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU32.html">nkt_tools.NKTP_DLL.registerWriteReadU32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU64.html">nkt_tools.NKTP_DLL.registerWriteReadU64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU8.html">nkt_tools.NKTP_DLL.registerWriteReadU8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS16.html">nkt_tools.NKTP_DLL.registerWriteS16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS32.html">nkt_tools.NKTP_DLL.registerWriteS32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS64.html">nkt_tools.NKTP_DLL.registerWriteS64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS8.html">nkt_tools.NKTP_DLL.registerWriteS8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU16.html">nkt_tools.NKTP_DLL.registerWriteU16</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU32.html">nkt_tools.NKTP_DLL.registerWriteU32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU64.html">nkt_tools.NKTP_DLL.registerWriteU64</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU8.html">nkt_tools.NKTP_DLL.registerWriteU8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrDeviceInfo.html">nkt_tools.NKTP_DLL.setCallbackPtrDeviceInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrPortInfo.html">nkt_tools.NKTP_DLL.setCallbackPtrPortInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrRegisterInfo.html">nkt_tools.NKTP_DLL.setCallbackPtrRegisterInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.setLegacyBusScanning.html">nkt_tools.NKTP_DLL.setLegacyBusScanning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortData.html">nkt_tools.NKTP_DLL.pointToPointPortData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.tDateTimeStruct.html">nkt_tools.NKTP_DLL.tDateTimeStruct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.tParamSetStruct.html">nkt_tools.NKTP_DLL.tParamSetStruct</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.extreme.html">nkt_tools.extreme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.varia.html">nkt_tools.varia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nkt_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="nkt_tools.html">﻿nkt_tools</a></li>
+      <li class="breadcrumb-item active">nkt_tools.NKTP_DLL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/nkt_tools.NKTP_DLL.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nkt_tools.NKTP_DLL">
+<span id="nkt-tools-nktp-dll"></span><h1>nkt_tools.NKTP_DLL<a class="headerlink" href="#module-nkt_tools.NKTP_DLL" title="Permalink to this heading"></a></h1>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceModeTypes.html#nkt_tools.NKTP_DLL.DeviceModeTypes" title="nkt_tools.NKTP_DLL.DeviceModeTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeviceModeTypes</span></code></a>(mode)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceResultTypes.html#nkt_tools.NKTP_DLL.DeviceResultTypes" title="nkt_tools.NKTP_DLL.DeviceResultTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeviceResultTypes</span></code></a>(result)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceStatusTypes.html#nkt_tools.NKTP_DLL.DeviceStatusTypes" title="nkt_tools.NKTP_DLL.DeviceStatusTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeviceStatusTypes</span></code></a>(status)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.P2PPortResultTypes.html#nkt_tools.NKTP_DLL.P2PPortResultTypes" title="nkt_tools.NKTP_DLL.P2PPortResultTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">P2PPortResultTypes</span></code></a>(result)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.ParamSetUnitTypes.html#nkt_tools.NKTP_DLL.ParamSetUnitTypes" title="nkt_tools.NKTP_DLL.ParamSetUnitTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParamSetUnitTypes</span></code></a>(unit)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.PortResultTypes.html#nkt_tools.NKTP_DLL.PortResultTypes" title="nkt_tools.NKTP_DLL.PortResultTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PortResultTypes</span></code></a>(result)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.PortStatusTypes.html#nkt_tools.NKTP_DLL.PortStatusTypes" title="nkt_tools.NKTP_DLL.PortStatusTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PortStatusTypes</span></code></a>(status)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterDataTypes.html#nkt_tools.NKTP_DLL.RegisterDataTypes" title="nkt_tools.NKTP_DLL.RegisterDataTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegisterDataTypes</span></code></a>(datatype)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterPriorityTypes.html#nkt_tools.NKTP_DLL.RegisterPriorityTypes" title="nkt_tools.NKTP_DLL.RegisterPriorityTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegisterPriorityTypes</span></code></a>(priority)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterResultTypes.html#nkt_tools.NKTP_DLL.RegisterResultTypes" title="nkt_tools.NKTP_DLL.RegisterResultTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegisterResultTypes</span></code></a>(result)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.RegisterStatusTypes.html#nkt_tools.NKTP_DLL.RegisterStatusTypes" title="nkt_tools.NKTP_DLL.RegisterStatusTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegisterStatusTypes</span></code></a>(status)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.closePorts.html#nkt_tools.NKTP_DLL.closePorts" title="nkt_tools.NKTP_DLL.closePorts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">closePorts</span></code></a>(portnames)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceCreate.html#nkt_tools.NKTP_DLL.deviceCreate" title="nkt_tools.NKTP_DLL.deviceCreate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceCreate</span></code></a>(portname, devId, waitReady)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceExists.html#nkt_tools.NKTP_DLL.deviceExists" title="nkt_tools.NKTP_DLL.deviceExists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceExists</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetAllTypes.html#nkt_tools.NKTP_DLL.deviceGetAllTypes" title="nkt_tools.NKTP_DLL.deviceGetAllTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetAllTypes</span></code></a>(portname)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetBootloaderVersion.html#nkt_tools.NKTP_DLL.deviceGetBootloaderVersion" title="nkt_tools.NKTP_DLL.deviceGetBootloaderVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetBootloaderVersion</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetBootloaderVersionStr.html#nkt_tools.NKTP_DLL.deviceGetBootloaderVersionStr" title="nkt_tools.NKTP_DLL.deviceGetBootloaderVersionStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetBootloaderVersionStr</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetErrorCode.html#nkt_tools.NKTP_DLL.deviceGetErrorCode" title="nkt_tools.NKTP_DLL.deviceGetErrorCode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetErrorCode</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetFirmwareVersion.html#nkt_tools.NKTP_DLL.deviceGetFirmwareVersion" title="nkt_tools.NKTP_DLL.deviceGetFirmwareVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetFirmwareVersion</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetFirmwareVersionStr.html#nkt_tools.NKTP_DLL.deviceGetFirmwareVersionStr" title="nkt_tools.NKTP_DLL.deviceGetFirmwareVersionStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetFirmwareVersionStr</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetLive.html#nkt_tools.NKTP_DLL.deviceGetLive" title="nkt_tools.NKTP_DLL.deviceGetLive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetLive</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetMode.html#nkt_tools.NKTP_DLL.deviceGetMode" title="nkt_tools.NKTP_DLL.deviceGetMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetMode</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetModuleSerialNumberStr.html#nkt_tools.NKTP_DLL.deviceGetModuleSerialNumberStr" title="nkt_tools.NKTP_DLL.deviceGetModuleSerialNumberStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetModuleSerialNumberStr</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPCBSerialNumberStr.html#nkt_tools.NKTP_DLL.deviceGetPCBSerialNumberStr" title="nkt_tools.NKTP_DLL.deviceGetPCBSerialNumberStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetPCBSerialNumberStr</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPCBVersion.html#nkt_tools.NKTP_DLL.deviceGetPCBVersion" title="nkt_tools.NKTP_DLL.deviceGetPCBVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetPCBVersion</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetPartNumberStr.html#nkt_tools.NKTP_DLL.deviceGetPartNumberStr" title="nkt_tools.NKTP_DLL.deviceGetPartNumberStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetPartNumberStr</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetStatusBits.html#nkt_tools.NKTP_DLL.deviceGetStatusBits" title="nkt_tools.NKTP_DLL.deviceGetStatusBits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetStatusBits</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceGetType.html#nkt_tools.NKTP_DLL.deviceGetType" title="nkt_tools.NKTP_DLL.deviceGetType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceGetType</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceRemove.html#nkt_tools.NKTP_DLL.deviceRemove" title="nkt_tools.NKTP_DLL.deviceRemove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceRemove</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceRemoveAll.html#nkt_tools.NKTP_DLL.deviceRemoveAll" title="nkt_tools.NKTP_DLL.deviceRemoveAll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceRemoveAll</span></code></a>(portname)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.deviceSetLive.html#nkt_tools.NKTP_DLL.deviceSetLive" title="nkt_tools.NKTP_DLL.deviceSetLive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deviceSetLive</span></code></a>(portname, devId, liveMode)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.getAllPorts.html#nkt_tools.NKTP_DLL.getAllPorts" title="nkt_tools.NKTP_DLL.getAllPorts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getAllPorts</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.getLegacyBusScanning.html#nkt_tools.NKTP_DLL.getLegacyBusScanning" title="nkt_tools.NKTP_DLL.getLegacyBusScanning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLegacyBusScanning</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.getOpenPorts.html#nkt_tools.NKTP_DLL.getOpenPorts" title="nkt_tools.NKTP_DLL.getOpenPorts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOpenPorts</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.getPortErrorMsg.html#nkt_tools.NKTP_DLL.getPortErrorMsg" title="nkt_tools.NKTP_DLL.getPortErrorMsg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPortErrorMsg</span></code></a>(portname)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.getPortStatus.html#nkt_tools.NKTP_DLL.getPortStatus" title="nkt_tools.NKTP_DLL.getPortStatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPortStatus</span></code></a>(portname)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.openPorts.html#nkt_tools.NKTP_DLL.openPorts" title="nkt_tools.NKTP_DLL.openPorts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">openPorts</span></code></a>(portnames, autoMode, liveMode)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortAdd.html#nkt_tools.NKTP_DLL.pointToPointPortAdd" title="nkt_tools.NKTP_DLL.pointToPointPortAdd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointToPointPortAdd</span></code></a>(portname, portdata)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortDel.html#nkt_tools.NKTP_DLL.pointToPointPortDel" title="nkt_tools.NKTP_DLL.pointToPointPortDel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointToPointPortDel</span></code></a>(portname)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortGet.html#nkt_tools.NKTP_DLL.pointToPointPortGet" title="nkt_tools.NKTP_DLL.pointToPointPortGet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointToPointPortGet</span></code></a>(portname)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerCreate.html#nkt_tools.NKTP_DLL.registerCreate" title="nkt_tools.NKTP_DLL.registerCreate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerCreate</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerExists.html#nkt_tools.NKTP_DLL.registerExists" title="nkt_tools.NKTP_DLL.registerExists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerExists</span></code></a>(portname, devId, regId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerGetAll.html#nkt_tools.NKTP_DLL.registerGetAll" title="nkt_tools.NKTP_DLL.registerGetAll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerGetAll</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRead.html#nkt_tools.NKTP_DLL.registerRead" title="nkt_tools.NKTP_DLL.registerRead"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerRead</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadAscii.html#nkt_tools.NKTP_DLL.registerReadAscii" title="nkt_tools.NKTP_DLL.registerReadAscii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadAscii</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadF32.html#nkt_tools.NKTP_DLL.registerReadF32" title="nkt_tools.NKTP_DLL.registerReadF32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadF32</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadF64.html#nkt_tools.NKTP_DLL.registerReadF64" title="nkt_tools.NKTP_DLL.registerReadF64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadF64</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS16.html#nkt_tools.NKTP_DLL.registerReadS16" title="nkt_tools.NKTP_DLL.registerReadS16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadS16</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS32.html#nkt_tools.NKTP_DLL.registerReadS32" title="nkt_tools.NKTP_DLL.registerReadS32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadS32</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS64.html#nkt_tools.NKTP_DLL.registerReadS64" title="nkt_tools.NKTP_DLL.registerReadS64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadS64</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadS8.html#nkt_tools.NKTP_DLL.registerReadS8" title="nkt_tools.NKTP_DLL.registerReadS8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadS8</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU16.html#nkt_tools.NKTP_DLL.registerReadU16" title="nkt_tools.NKTP_DLL.registerReadU16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadU16</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU32.html#nkt_tools.NKTP_DLL.registerReadU32" title="nkt_tools.NKTP_DLL.registerReadU32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadU32</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU64.html#nkt_tools.NKTP_DLL.registerReadU64" title="nkt_tools.NKTP_DLL.registerReadU64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadU64</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerReadU8.html#nkt_tools.NKTP_DLL.registerReadU8" title="nkt_tools.NKTP_DLL.registerReadU8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerReadU8</span></code></a>(portname, devId, regId, index)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRemove.html#nkt_tools.NKTP_DLL.registerRemove" title="nkt_tools.NKTP_DLL.registerRemove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerRemove</span></code></a>(portname, devId, regId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerRemoveAll.html#nkt_tools.NKTP_DLL.registerRemoveAll" title="nkt_tools.NKTP_DLL.registerRemoveAll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerRemoveAll</span></code></a>(portname, devId)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWrite.html#nkt_tools.NKTP_DLL.registerWrite" title="nkt_tools.NKTP_DLL.registerWrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWrite</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteAscii.html#nkt_tools.NKTP_DLL.registerWriteAscii" title="nkt_tools.NKTP_DLL.registerWriteAscii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteAscii</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteF32.html#nkt_tools.NKTP_DLL.registerWriteF32" title="nkt_tools.NKTP_DLL.registerWriteF32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteF32</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteF64.html#nkt_tools.NKTP_DLL.registerWriteF64" title="nkt_tools.NKTP_DLL.registerWriteF64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteF64</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteRead.html#nkt_tools.NKTP_DLL.registerWriteRead" title="nkt_tools.NKTP_DLL.registerWriteRead"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteRead</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadAscii.html#nkt_tools.NKTP_DLL.registerWriteReadAscii" title="nkt_tools.NKTP_DLL.registerWriteReadAscii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadAscii</span></code></a>(portname, devId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadF32.html#nkt_tools.NKTP_DLL.registerWriteReadF32" title="nkt_tools.NKTP_DLL.registerWriteReadF32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadF32</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadF64.html#nkt_tools.NKTP_DLL.registerWriteReadF64" title="nkt_tools.NKTP_DLL.registerWriteReadF64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadF64</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS16.html#nkt_tools.NKTP_DLL.registerWriteReadS16" title="nkt_tools.NKTP_DLL.registerWriteReadS16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadS16</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS32.html#nkt_tools.NKTP_DLL.registerWriteReadS32" title="nkt_tools.NKTP_DLL.registerWriteReadS32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadS32</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS64.html#nkt_tools.NKTP_DLL.registerWriteReadS64" title="nkt_tools.NKTP_DLL.registerWriteReadS64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadS64</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadS8.html#nkt_tools.NKTP_DLL.registerWriteReadS8" title="nkt_tools.NKTP_DLL.registerWriteReadS8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadS8</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU16.html#nkt_tools.NKTP_DLL.registerWriteReadU16" title="nkt_tools.NKTP_DLL.registerWriteReadU16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadU16</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU32.html#nkt_tools.NKTP_DLL.registerWriteReadU32" title="nkt_tools.NKTP_DLL.registerWriteReadU32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadU32</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU64.html#nkt_tools.NKTP_DLL.registerWriteReadU64" title="nkt_tools.NKTP_DLL.registerWriteReadU64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadU64</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteReadU8.html#nkt_tools.NKTP_DLL.registerWriteReadU8" title="nkt_tools.NKTP_DLL.registerWriteReadU8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteReadU8</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS16.html#nkt_tools.NKTP_DLL.registerWriteS16" title="nkt_tools.NKTP_DLL.registerWriteS16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteS16</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS32.html#nkt_tools.NKTP_DLL.registerWriteS32" title="nkt_tools.NKTP_DLL.registerWriteS32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteS32</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS64.html#nkt_tools.NKTP_DLL.registerWriteS64" title="nkt_tools.NKTP_DLL.registerWriteS64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteS64</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteS8.html#nkt_tools.NKTP_DLL.registerWriteS8" title="nkt_tools.NKTP_DLL.registerWriteS8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteS8</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU16.html#nkt_tools.NKTP_DLL.registerWriteU16" title="nkt_tools.NKTP_DLL.registerWriteU16"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteU16</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU32.html#nkt_tools.NKTP_DLL.registerWriteU32" title="nkt_tools.NKTP_DLL.registerWriteU32"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteU32</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU64.html#nkt_tools.NKTP_DLL.registerWriteU64" title="nkt_tools.NKTP_DLL.registerWriteU64"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteU64</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.registerWriteU8.html#nkt_tools.NKTP_DLL.registerWriteU8" title="nkt_tools.NKTP_DLL.registerWriteU8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">registerWriteU8</span></code></a>(portname, devId, regId, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrDeviceInfo.html#nkt_tools.NKTP_DLL.setCallbackPtrDeviceInfo" title="nkt_tools.NKTP_DLL.setCallbackPtrDeviceInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCallbackPtrDeviceInfo</span></code></a>(DeviceStatusCallback)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrPortInfo.html#nkt_tools.NKTP_DLL.setCallbackPtrPortInfo" title="nkt_tools.NKTP_DLL.setCallbackPtrPortInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCallbackPtrPortInfo</span></code></a>(PortStatusCallback)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.setCallbackPtrRegisterInfo.html#nkt_tools.NKTP_DLL.setCallbackPtrRegisterInfo" title="nkt_tools.NKTP_DLL.setCallbackPtrRegisterInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCallbackPtrRegisterInfo</span></code></a>(...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.setLegacyBusScanning.html#nkt_tools.NKTP_DLL.setLegacyBusScanning" title="nkt_tools.NKTP_DLL.setLegacyBusScanning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setLegacyBusScanning</span></code></a>(legacyScanning)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.pointToPointPortData.html#nkt_tools.NKTP_DLL.pointToPointPortData" title="nkt_tools.NKTP_DLL.pointToPointPortData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointToPointPortData</span></code></a>(hostAddress, hostPort, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.tDateTimeStruct.html#nkt_tools.NKTP_DLL.tDateTimeStruct" title="nkt_tools.NKTP_DLL.tDateTimeStruct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tDateTimeStruct</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="nkt_tools.NKTP_DLL.tParamSetStruct.html#nkt_tools.NKTP_DLL.tParamSetStruct" title="nkt_tools.NKTP_DLL.tParamSetStruct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tParamSetStruct</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nkt_tools.html" class="btn btn-neutral float-left" title="﻿nkt_tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nkt_tools.NKTP_DLL.DeviceModeTypes.html" class="btn btn-neutral float-right" title="nkt_tools.NKTP_DLL.DeviceModeTypes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
