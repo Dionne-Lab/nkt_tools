@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nkt_tools"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Briley Bourgeois", email="bbourge6@stanford.edu" }
 ]
@@ -19,11 +19,14 @@ classifiers = [
 ]
 
 dynamic = ["dependencies"]
+
 [project.urls]
 "Homepage" = "https://github.com/Dionne-Lab/nkt_tools"
 "Bug Tracker" = "https://github.com/Dionne-Lab/nkt_tools/issues"
 
-[tool.setuptools.dynamic]
-
 [tool.setuptools]
-py-modules = ["nkt_tools"]
+include-package-data = false
+
+[tools.setuptools.packages.find]
+
+exclude = ["manuals*"]
