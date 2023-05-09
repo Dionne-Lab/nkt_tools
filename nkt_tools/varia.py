@@ -193,7 +193,7 @@ class Varia:
                              register_address, value, -1)
 
     @property
-    def long_setpoint(self, wavelength):
+    def long_setpoint(self):
         """
         Sets the short wave pass value with 0.1 nm precision.
 
