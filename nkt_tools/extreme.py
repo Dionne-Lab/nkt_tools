@@ -552,7 +552,7 @@ class Extreme:
             Power level setpoint in percent w/ 0.1% precision. (0 <= P <= 100)
         """
         register_address = 0x37
-        setpoint = power * 10
+        setpoint = int(power * 10)
         if (power >= 0) and (power <= 100):
             nkt.registerWriteU16(self.portname, self.module_address,
                                  register_address, setpoint, -1)
@@ -574,7 +574,7 @@ class Extreme:
             Current level setpoint in percent w/ 0.1% precision (0 <= I <= 100)
         """
         register_address = 0x38
-        setpoint = current*10
+        setpoint = int(current*10)
         if (current >= 0) and (current <= 100):
             nkt.registerWriteU16(self.portname, self.module_address,
                                  register_address, setpoint, -1)
