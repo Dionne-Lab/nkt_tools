@@ -158,9 +158,7 @@ class Varia:
         comm_result, reading = nkt.registerReadU16(self.portname,
                                                    self.module_address,
                                                    register_address, -1)
-        print(reading)
         output_power = reading / 10
-
         return output_power
 
     @property
