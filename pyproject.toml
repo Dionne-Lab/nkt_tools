@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nkt_tools"
-version = "0.0.2"
+version = "0.0.5"
 authors = [
   { name="Briley Bourgeois", email="bbourge6@stanford.edu" }
 ]
@@ -18,15 +18,17 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-dynamic = ["dependencies"]
-
 [project.urls]
 "Homepage" = "https://github.com/Dionne-Lab/nkt_tools"
 "Bug Tracker" = "https://github.com/Dionne-Lab/nkt_tools/issues"
 
-[tool.setuptools]
-include-package-data = false
+[tools.setuptools]
+include-package-data = true
+
+[tools.setuptools.package-data]
+'nkt_tools.NKTPDLL.x86' = ["*.dll"]
+'nkt_tools.NKTPDLL.x64' = ["*.dll"]
 
 [tools.setuptools.packages.find]
-
 exclude = ["manuals*"]
+include = ["nkt_tools*"]

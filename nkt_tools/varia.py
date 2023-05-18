@@ -158,9 +158,7 @@ class Varia:
         comm_result, reading = nkt.registerReadU16(self.portname,
                                                    self.module_address,
                                                    register_address, -1)
-        print(reading)
         output_power = reading / 10
-
         return output_power
 
     @property
@@ -195,7 +193,7 @@ class Varia:
                              register_address, value, -1)
 
     @property
-    def long_setpoint(self, wavelength):
+    def long_setpoint(self):
         """
         Sets the short wave pass value with 0.1 nm precision.
 
