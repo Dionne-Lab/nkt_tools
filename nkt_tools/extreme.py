@@ -141,21 +141,21 @@ class Extreme:
             print('No Extreme/Fianium Laser Found')
 
     module_address = property(lambda self: self._module_address)
-    """int, read-only: Module address = 15 for Extreme/Fianium."""
+    """`int`, read-only: Module address = 15 for Extreme/Fianium."""
 
     device_type = property(lambda self: self._device_type)
-    """int, read-only: Should be 96 (0x60) for Extreme/Fianium.
+    """`int`, read-only: Should be 96 (0x60) for Extreme/Fianium.
     Assigned and checked during object init."""
 
     portname = property(lambda self: self._portname)
-    """str, read-only: COM port for laser.
+    """`str`, read-only: COM port for laser.
     Autofound during init if not given. User can supply when creating object.
     """
 
     @property
     def system_type(self):
         """
-        str, read-only:
+        `str`, read-only:
         Access register 0x6B to determine Extreme/Fianium
 
         From Manual:
@@ -181,7 +181,7 @@ class Extreme:
     @property
     def inlet_temperature(self):
         """
-        float, read-only:
+        `float`, read-only:
         Accesses register 0x11 to return inlet temperature w/ 0.1 C precision.
 
         Updates the value of non-public attr when called.
@@ -552,7 +552,7 @@ class Extreme:
             Power level setpoint in percent w/ 0.1% precision. (0 <= P <= 100)
         """
         register_address = 0x37
-        setpoint = power * 10
+        setpoint = int(power * 10)
         if (power >= 0) and (power <= 100):
             nkt.registerWriteU16(self.portname, self.module_address,
                                  register_address, setpoint, -1)
@@ -574,7 +574,7 @@ class Extreme:
             Current level setpoint in percent w/ 0.1% precision (0 <= I <= 100)
         """
         register_address = 0x38
-        setpoint = current*10
+        setpoint = int(current*10)
         if (current >= 0) and (current <= 100):
             nkt.registerWriteU16(self.portname, self.module_address,
                                  register_address, setpoint, -1)
