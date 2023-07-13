@@ -30,3 +30,13 @@ https://catalight.readthedocs.io/en/latest/
 
 **PyPI Page:**
 https://pypi.org/project/catalight/
+
+Citing
+^^^^^^
+
+.. image:: https://zenodo.org/badge/629268582.svg
+   :target: https://zenodo.org/badge/latestdoi/629268582
+
+If you utilize the nkt_tools package for you research, we'd appreciate you referencing our Zenodo upload such that others might find our work:
+
+Briley Bourgeois, & Jennifer Dionne. (2023). Dionne-Lab/nkt_tools: 0.0.8 (0.0.8). Zenodo. https://doi.org/10.5281/zenodo.8145215
