@@ -33,7 +33,9 @@ https://pypi.org/project/catalight/
 
 Citing
 ^^^^^^
+
 |DOI|
+
 .. image:: https://zenodo.org/badge/629268582.svg
    :target: https://zenodo.org/badge/latestdoi/629268582
 
