@@ -129,15 +129,15 @@ class Varia:
                 print('No Varia Found')
 
     portname = property(lambda self: self._portname)
-    """str, read-only: COM port for laser.
+    """`str`, read-only: COM port for laser.
     Autofound during init if not given. User can supply when creating object.
     """
 
     module_address = property(lambda self: self._module_address)
-    """int, read-only:  # 16-25 for Varia. Auto searches in init."""
+    """`int`, read-only:  # 16-25 for Varia. Auto searches in init."""
 
     device_type = property(lambda self: self._device_type)
-    """int, read-only: This should update to 104 (0x68) if init is right.
+    """`int`, read-only: This should update to 104 (0x68) if init is right.
     Assigned and checked during object init."""
 
     @property
