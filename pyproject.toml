@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nkt_tools"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
   { name="Briley Bourgeois", email="bbourge6@stanford.edu" }
 ]
