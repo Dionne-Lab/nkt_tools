@@ -148,3 +148,68 @@ Varia
     # registerReadU32:  (8, 258)
     # registerReadF32:  (8, 3.615350037958028e-43)
     # registerReadAscii:  (0, b'\x02\x01')
+
+
+Use in a Qt GUI:
+================
+
+.. note::
+    Use in QT applications is still experimental. There seem to be crashed when using the NKTPDLL resource from multiple QThreads. Additionally, calls to the NKTPDLL seem to overide the QEventLoop, causing some unexpected behavior.
+
+.. code-block:: python
+
+    from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
+    from PyQt5.QtCore import (QObject, pyqtSignal, pyqtSlot)
+
+    class MainWindow(QMainWindow):
+        """Subclass QMainWindow to customize your application's main window."""
+        thread_change = pyqtSignal()
+
+        def __init__(self):
+            super().__init__()
+            # Set the window title
+            self.setWindowTitle("Laser Control")
+             # Create the main widget and set it as the central widget
+            update_button = QPushButton("Print Power")
+            self.setCentralWidget(update_button)
+
+            eqpt_thread = QThread(self)
+            eqpt_thread.start()
+
+            self.eqpt_worker = Worker()
+            self.eqpt_worker.moveToThread(eqpt_thread)
+            self.thread_change.connect(self.eqpt_worker.init_equipment)
+            self.thread_change.emit()
+
+            update_button.clicked.connect(self.eqpt_worker.print_laser_power)
+
+            self.show()
+
+
+    class Worker(QObject):
+        """
+
+        """
+        def __init__(self, parent=None):
+            super(Worker, self).__init__(parent)
+
+        @pyqtSlot()
+        def init_equipment(self):
+        """Try to connect with NKT laser"""
+            try:
+                from nkt_tools import extreme
+                self.laser_controller = extreme.Extreme()
+
+            except Exception as e:
+                print(e)
+
+        @pyqtSlot()
+        def print_laser_power(self):
+        """Ping laser for current power setting and print it."""
+            print("laser power is " + str(self.laser_controller.power_level))
+
+    if __name__ == "__main__":
+
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    sys.exit(app.exec_())

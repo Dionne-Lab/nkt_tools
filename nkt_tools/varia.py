@@ -47,6 +47,12 @@ class Varia:
 
     """
 
+    max_comm_tries = 3
+    """
+    `int`, optional : Number of attempts to make before aborting.
+    The default is 3.
+    """
+
     def __init__(self, portname=None):
         """
         Searches for connected NKT Varia and defines instrument parameters.
@@ -155,9 +161,14 @@ class Varia:
             Output power given in percent with 0.1% precision.
         """
         register_address = 0x13
-        comm_result, reading = nkt.registerReadU16(self.portname,
-                                                   self.module_address,
-                                                   register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, reading = nkt.registerReadU16(self.portname,
+                                                       self.module_address,
+                                                       register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error in input monitor, retrying...')
         output_power = reading / 10
         return output_power
 
@@ -180,17 +191,28 @@ class Varia:
             Setpoint for neutral density filter given in % with 0.1% precision.
         """
         register_address = 0x32
-        comm_result, reading = nkt.registerReadU16(self.portname,
-                                                   self.module_address,
-                                                   register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, reading = nkt.registerReadU16(self.portname,
+                                                       self.module_address,
+                                                       register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error in reading nd setpoint, retrying...')
         return reading/10
 
     @nd_setpoint.setter
     def nd_setpoint(self, value):
         register_address = 0x32
         value = int(value * 10)  # convert percent to permille
-        nkt.registerWriteU16(self.portname, self.module_address,
-                             register_address, value, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result = nkt.registerWriteU16(self.portname,
+                                               self.module_address,
+                                               register_address, value, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error in setting nd setpoint, retrying...')
 
     @property
     def long_setpoint(self):
@@ -204,19 +226,32 @@ class Varia:
         ----------
         wavelength : float
             Lower bandpass value given in nanometers w/ 0.1 nm precision.
+         max_tries : `int`, optional
+            Number of attempts to make before aborting. The default is 3.
         """
         register_address = 0x33
-        comm_result, reading = nkt.registerReadU16(self.portname,
-                                                   self.module_address,
-                                                   register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, reading = nkt.registerReadU16(self.portname,
+                                                       self.module_address,
+                                                       register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error in reading short pass, retrying...')
         return reading/10
 
     @long_setpoint.setter
-    def long_setpoint(self, wavelength):
+    def long_setpoint(self, wavelength, max_tries=3):
         register_address = 0x33
         value = int(wavelength * 10)  # convert nm to 1/10 nm
-        nkt.registerWriteU16(self.portname, self.module_address,
-                             register_address, value, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result = nkt.registerWriteU16(self.portname,
+                                               self.module_address,
+                                               register_address, value, -1)
+            if comm_result == 0:
+                break
+            else:
+                print("Comm Error while setting short pass, retrying...")
 
     @property
     def short_setpoint(self):
@@ -232,17 +267,28 @@ class Varia:
             Upper bandpass value given in nanometers w/ 0.1 nm precision.
         """
         register_address = 0x34
-        comm_result, reading = nkt.registerReadU16(self.portname,
-                                                   self.module_address,
-                                                   register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, reading = nkt.registerReadU16(self.portname,
+                                                       self.module_address,
+                                                       register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print("Comm Error while reading long pass, retrying...")
         return reading/10
 
     @short_setpoint.setter
     def short_setpoint(self, wavelength):
         register_address = 0x34
         value = int(wavelength * 10)  # convert nm to 1/10 nm
-        nkt.registerWriteU16(self.portname, self.module_address,
-                             register_address, value, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result = nkt.registerWriteU16(self.portname,
+                                               self.module_address,
+                                               register_address, value, -1)
+            if comm_result == 0:
+                break
+            else:
+                print("Comm Error while setting long pass, retrying...")
 
     def print_status(self):
         """

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Examples &mdash; nkt_tools 0.0.1 documentation</title>
+  <title>Examples &mdash; nkt_tools 0.0.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             nkt_tools
           </a>
               <div class="version">
-                0.0.1
+                0.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -43,7 +43,18 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extreme-fianium">Extreme/Fianium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#varia">Varia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-in-a-qt-gui">Use in a Qt GUI:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development_notes.html">Development Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
@@ -228,6 +239,70 @@
 <span class="c1"># registerReadAscii:  (0, b&#39;\x02\x01&#39;)</span>
 </pre></div>
 </div>
+</div>
+</section>
+<section id="use-in-a-qt-gui">
+<h2>Use in a Qt GUI:<a class="headerlink" href="#use-in-a-qt-gui" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-157">Use in QT applications is still experimental. There seem to be crashed when using the NKTPDLL resource from multiple QThreads. Additionally, calls to the NKTPDLL seem to overide the QEventLoop, causing some unexpected behavior.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QPushButton</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QObject</span><span class="p">,</span> <span class="n">pyqtSignal</span><span class="p">,</span> <span class="n">pyqtSlot</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Subclass QMainWindow to customize your application&#39;s main window.&quot;&quot;&quot;</span>
+    <span class="n">thread_change</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># Set the window title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Laser Control&quot;</span><span class="p">)</span>
+         <span class="c1"># Create the main widget and set it as the central widget</span>
+        <span class="n">update_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Print Power&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">update_button</span><span class="p">)</span>
+
+        <span class="n">eqpt_thread</span> <span class="o">=</span> <span class="n">QThread</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">eqpt_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">eqpt_worker</span> <span class="o">=</span> <span class="n">Worker</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eqpt_worker</span><span class="o">.</span><span class="n">moveToThread</span><span class="p">(</span><span class="n">eqpt_thread</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thread_change</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eqpt_worker</span><span class="o">.</span><span class="n">init_equipment</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thread_change</span><span class="o">.</span><span class="n">emit</span><span class="p">()</span>
+
+        <span class="n">update_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eqpt_worker</span><span class="o">.</span><span class="n">print_laser_power</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Worker</span><span class="p">(</span><span class="n">QObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Worker</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">init_equipment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Try to connect with NKT laser&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">nkt_tools</span> <span class="kn">import</span> <span class="n">extreme</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">laser_controller</span> <span class="o">=</span> <span class="n">extreme</span><span class="o">.</span><span class="n">Extreme</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="nd">@pyqtSlot</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">print_laser_power</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ping laser for current power setting and print it.&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;laser power is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">laser_controller</span><span class="o">.</span><span class="n">power_level</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
 </div>
 </section>
 </section>

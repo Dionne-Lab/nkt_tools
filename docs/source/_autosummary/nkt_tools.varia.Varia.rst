@@ -1,4 +1,4 @@
-nkt\_tools.varia.Varia
+﻿nkt\_tools.varia.Varia
 ======================
 
 .. currentmodule:: nkt_tools.varia
@@ -30,6 +30,7 @@ nkt\_tools.varia.Varia
    
       ~Varia.device_type
       ~Varia.long_setpoint
+      ~Varia.max_comm_tries
       ~Varia.module_address
       ~Varia.monitor_input
       ~Varia.nd_setpoint

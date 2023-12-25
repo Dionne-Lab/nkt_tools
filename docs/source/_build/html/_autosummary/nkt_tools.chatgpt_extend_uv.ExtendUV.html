@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nkt_tools.chatgpt_extend_uv.ExtendUV &mdash; nkt_tools 0.0.1 documentation</title>
+  <title>nkt_tools.chatgpt_extend_uv.ExtendUV &mdash; nkt_tools 0.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,7 +16,9 @@
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nkt_tools.chatgpt_select" href="nkt_tools.chatgpt_select.html" />
+    <link rel="prev" title="nkt_tools.chatgpt_extend_uv" href="nkt_tools.chatgpt_extend_uv.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -31,7 +33,7 @@
             nkt_tools
           </a>
               <div class="version">
-                0.0.1
+                0.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -41,9 +43,29 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_notes.html">Development Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nkt_tools.html">﻿nkt_tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.NKTPDLL.html">nkt_tools.NKTPDLL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.NKTP_DLL.html">nkt_tools.NKTP_DLL</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="nkt_tools.chatgpt_extend_uv.html">nkt_tools.chatgpt_extend_uv</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nkt_tools.chatgpt_extend_uv.ExtendUV</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.chatgpt_select.html">nkt_tools.chatgpt_select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.extreme.html">nkt_tools.extreme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.varia.html">nkt_tools.varia</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -60,6 +82,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="nkt_tools.html">﻿nkt_tools</a></li>
+          <li class="breadcrumb-item"><a href="nkt_tools.chatgpt_extend_uv.html">nkt_tools.chatgpt_extend_uv</a></li>
       <li class="breadcrumb-item active">nkt_tools.chatgpt_extend_uv.ExtendUV</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/nkt_tools.chatgpt_extend_uv.ExtendUV.rst.txt" rel="nofollow"> View page source</a>
@@ -72,12 +97,97 @@
              
   <section id="nkt-tools-chatgpt-extend-uv-extenduv">
 <h1>nkt_tools.chatgpt_extend_uv.ExtendUV<a class="headerlink" href="#nkt-tools-chatgpt-extend-uv-extenduv" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nkt_tools.chatgpt_extend_uv.</span></span><span class="sig-name descname"><span class="pre">ExtendUV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.__init__" title="nkt_tools.chatgpt_extend_uv.ExtendUV.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(address)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_max_wavelength" title="nkt_tools.chatgpt_extend_uv.ExtendUV.get_max_wavelength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_max_wavelength</span></code></a>()</p></td>
+<td><p class="linemarker linemarker-1">Returns the maximum selectable wavelength in 1/10 nm</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_min_wavelength" title="nkt_tools.chatgpt_extend_uv.ExtendUV.get_min_wavelength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_min_wavelength</span></code></a>()</p></td>
+<td><p class="linemarker linemarker-1">Returns the minimum selectable wavelength in 1/10 nm</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_status_bits" title="nkt_tools.chatgpt_extend_uv.ExtendUV.get_status_bits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_status_bits</span></code></a>()</p></td>
+<td><p class="linemarker linemarker-1">Returns the status bits</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_wavelength" title="nkt_tools.chatgpt_extend_uv.ExtendUV.get_wavelength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_wavelength</span></code></a>()</p></td>
+<td><p class="linemarker linemarker-1">Returns the wavelength setpoint in 1/10 nm</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.set_max_wavelength" title="nkt_tools.chatgpt_extend_uv.ExtendUV.set_max_wavelength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_max_wavelength</span></code></a>(wavelength)</p></td>
+<td><p class="linemarker linemarker-1">Sets the maximum selectable wavelength in 1/10 nm</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.set_min_wavelength" title="nkt_tools.chatgpt_extend_uv.ExtendUV.set_min_wavelength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_min_wavelength</span></code></a>(wavelength)</p></td>
+<td><p class="linemarker linemarker-1">Sets the minimum selectable wavelength in 1/10 nm</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.set_wavelength" title="nkt_tools.chatgpt_extend_uv.ExtendUV.set_wavelength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_wavelength</span></code></a>(wavelength)</p></td>
+<td><p class="linemarker linemarker-1">Sets the wavelength setpoint in 1/10 nm</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.get_max_wavelength">
+<span class="sig-name descname"><span class="pre">get_max_wavelength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_max_wavelength" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Returns the maximum selectable wavelength in 1/10 nm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.get_min_wavelength">
+<span class="sig-name descname"><span class="pre">get_min_wavelength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_min_wavelength" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Returns the minimum selectable wavelength in 1/10 nm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.get_status_bits">
+<span class="sig-name descname"><span class="pre">get_status_bits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_status_bits" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Returns the status bits</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.get_wavelength">
+<span class="sig-name descname"><span class="pre">get_wavelength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.get_wavelength" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Returns the wavelength setpoint in 1/10 nm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.set_max_wavelength">
+<span class="sig-name descname"><span class="pre">set_max_wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.set_max_wavelength" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Sets the maximum selectable wavelength in 1/10 nm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.set_min_wavelength">
+<span class="sig-name descname"><span class="pre">set_min_wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.set_min_wavelength" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Sets the minimum selectable wavelength in 1/10 nm</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nkt_tools.chatgpt_extend_uv.ExtendUV.set_wavelength">
+<span class="sig-name descname"><span class="pre">set_wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.chatgpt_extend_uv.ExtendUV.set_wavelength" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Sets the wavelength setpoint in 1/10 nm</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nkt_tools.chatgpt_extend_uv.html" class="btn btn-neutral float-left" title="nkt_tools.chatgpt_extend_uv" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nkt_tools.chatgpt_select.html" class="btn btn-neutral float-right" title="nkt_tools.chatgpt_select" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

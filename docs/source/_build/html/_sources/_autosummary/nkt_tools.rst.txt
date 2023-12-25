@@ -27,6 +27,7 @@
    :template: custom-module-template.rst
    :recursive:
 
+   nkt_tools.NKTPDLL
    nkt_tools.NKTP_DLL
    nkt_tools.chatgpt_extend_uv
    nkt_tools.chatgpt_select

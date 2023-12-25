@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nkt_tools.varia.Varia &mdash; nkt_tools 0.0.1 documentation</title>
+  <title>﻿nkt_tools.varia.Varia &mdash; nkt_tools 0.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             nkt_tools
           </a>
               <div class="version">
-                0.0.1
+                0.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -42,14 +42,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_notes.html">Development Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nkt_tools.html">﻿nkt_tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.NKTPDLL.html">nkt_tools.NKTPDLL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nkt_tools.NKTP_DLL.html">nkt_tools.NKTP_DLL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.chatgpt_extend_uv.html">nkt_tools.chatgpt_extend_uv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.chatgpt_select.html">nkt_tools.chatgpt_select</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nkt_tools.extreme.html">nkt_tools.extreme</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="nkt_tools.varia.html">nkt_tools.varia</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">nkt_tools.varia.Varia</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">﻿nkt_tools.varia.Varia</a></li>
 </ul>
 </li>
 </ul>
@@ -75,7 +84,7 @@
           <li class="breadcrumb-item"><a href="../api.html">API</a></li>
           <li class="breadcrumb-item"><a href="nkt_tools.html">﻿nkt_tools</a></li>
           <li class="breadcrumb-item"><a href="nkt_tools.varia.html">nkt_tools.varia</a></li>
-      <li class="breadcrumb-item active">nkt_tools.varia.Varia</li>
+      <li class="breadcrumb-item active">﻿nkt_tools.varia.Varia</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/nkt_tools.varia.Varia.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,11 +95,11 @@
            <div itemprop="articleBody">
              
   <section id="nkt-tools-varia-varia">
-<h1>nkt_tools.varia.Varia<a class="headerlink" href="#nkt-tools-varia-varia" title="Permalink to this heading"></a></h1>
+<h1>﻿nkt_tools.varia.Varia<a class="headerlink" href="#nkt-tools-varia-varia" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="nkt_tools.varia.Varia">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nkt_tools.varia.</span></span><span class="sig-name descname"><span class="pre">Varia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">portname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.varia.Varia" title="Permalink to this definition"></a></dt>
-<dd><p class="linemarker linemarker-1">Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p class="linemarker linemarker-1">Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nkt_tools.varia.Varia.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">portname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.varia.Varia.__init__" title="Permalink to this definition"></a></dt>
@@ -100,11 +109,11 @@ If multiple Varias are connected to the same computer,
 specificy the port of the desired Varia upon instantiation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>portname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>optional</em>) – Enter if portname for Varia is known/multiple lasers are connected.
+<dd class="field-odd"><p><strong>portname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – Enter if portname for Varia is known/multiple lasers are connected.
 If not supplied, system searches for Varia. None by default.</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.11)"><strong>RuntimeError</strong></a> – Throws error if multiple NKT Varias are found on one computer.
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.12)"><strong>RuntimeError</strong></a> – Throws error if multiple NKT Varias are found on one computer.
     Supply portname for desired Varia if multiple present.</p>
 </dd>
 </dl>
@@ -136,22 +145,25 @@ If not supplied, system searches for Varia. None by default.</p>
 <tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.long_setpoint" title="nkt_tools.varia.Varia.long_setpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">long_setpoint</span></code></a></p></td>
 <td><p class="linemarker linemarker-1">Sets the short wave pass value with 0.1 nm precision.</p></td>
 </tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.module_address" title="nkt_tools.varia.Varia.module_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">module_address</span></code></a></p></td>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.max_comm_tries" title="nkt_tools.varia.Varia.max_comm_tries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max_comm_tries</span></code></a></p></td>
+<td><p class="linemarker linemarker-1">Number of attempts to make before aborting.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.module_address" title="nkt_tools.varia.Varia.module_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">module_address</span></code></a></p></td>
 <td><p class="linemarker linemarker-1"># 16-25 for Varia.</p></td>
 </tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.monitor_input" title="nkt_tools.varia.Varia.monitor_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">monitor_input</span></code></a></p></td>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.monitor_input" title="nkt_tools.varia.Varia.monitor_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">monitor_input</span></code></a></p></td>
 <td><p class="linemarker linemarker-1">Uses optional monitor to get laser power in percent.</p></td>
 </tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.nd_setpoint" title="nkt_tools.varia.Varia.nd_setpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nd_setpoint</span></code></a></p></td>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.nd_setpoint" title="nkt_tools.varia.Varia.nd_setpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nd_setpoint</span></code></a></p></td>
 <td><p class="linemarker linemarker-1">Unclear what this parameter actually controls.</p></td>
 </tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.portname" title="nkt_tools.varia.Varia.portname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">portname</span></code></a></p></td>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.portname" title="nkt_tools.varia.Varia.portname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">portname</span></code></a></p></td>
 <td><p class="linemarker linemarker-1">COM port for laser.</p></td>
 </tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.short_setpoint" title="nkt_tools.varia.Varia.short_setpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">short_setpoint</span></code></a></p></td>
+<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.short_setpoint" title="nkt_tools.varia.Varia.short_setpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">short_setpoint</span></code></a></p></td>
 <td><p class="linemarker linemarker-1">Sets the long wave pass value with 0.1 nm precision.</p></td>
 </tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.status_messages" title="nkt_tools.varia.Varia.status_messages"><code class="xref py py-obj docutils literal notranslate"><span class="pre">status_messages</span></code></a></p></td>
+<tr class="row-odd"><td><p class="linemarker linemarker-1"><a class="reference internal" href="#nkt_tools.varia.Varia.status_messages" title="nkt_tools.varia.Varia.status_messages"><code class="xref py py-obj docutils literal notranslate"><span class="pre">status_messages</span></code></a></p></td>
 <td><p class="linemarker linemarker-1">system status translation bits &gt; string.</p></td>
 </tr>
 </tbody>
@@ -171,7 +183,7 @@ registerRead commands as an example of the data type returned by each.</p>
 Assigned and checked during object init.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p class="linemarker linemarker-4"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, read-only</p>
+<dd class="field-odd"><p class="linemarker linemarker-4"><cite>int</cite>, read-only</p>
 </dd>
 </dl>
 </dd></dl>
@@ -184,7 +196,24 @@ Assigned and checked during object init.</p>
 0x33.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>wavelength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lower bandpass value given in nanometers w/ 0.1 nm precision.</p>
+<dd class="field-odd"><p><strong>wavelength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – <p class="linemarker linemarker-6">Lower bandpass value given in nanometers w/ 0.1 nm precision.
+max_tries : <cite>int</cite>, optional</p>
+<blockquote>
+<div><p class="linemarker linemarker-8">Number of attempts to make before aborting. The default is 3.</p>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nkt_tools.varia.Varia.max_comm_tries">
+<span class="sig-name descname"><span class="pre">max_comm_tries</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#nkt_tools.varia.Varia.max_comm_tries" title="Permalink to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Number of attempts to make before aborting.
+The default is 3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-4"><cite>int</cite>, optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -195,7 +224,7 @@ Assigned and checked during object init.</p>
 <dd><p class="linemarker linemarker-1"># 16-25 for Varia. Auto searches in init.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p class="linemarker linemarker-3"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, read-only</p>
+<dd class="field-odd"><p class="linemarker linemarker-3"><cite>int</cite>, read-only</p>
 </dd>
 </dl>
 </dd></dl>
@@ -212,7 +241,7 @@ content to be valid.</p>
 <dd class="field-odd"><p>Output power given in percent with 0.1% precision.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -229,7 +258,7 @@ register. The value in this register is in tenths of percent
 (permille, ‰).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Setpoint for neutral density filter given in % with 0.1% precision.</p>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Setpoint for neutral density filter given in % with 0.1% precision.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -241,7 +270,7 @@ register. The value in this register is in tenths of percent
 Autofound during init if not given. User can supply when creating object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p class="linemarker linemarker-4"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, read-only</p>
+<dd class="field-odd"><p class="linemarker linemarker-4"><cite>str</cite>, read-only</p>
 </dd>
 </dl>
 </dd></dl>
@@ -271,7 +300,7 @@ Varia.status_messages.</p>
 0x34.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>wavelength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Upper bandpass value given in nanometers w/ 0.1 nm precision.</p>
+<dd class="field-odd"><p><strong>wavelength</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Upper bandpass value given in nanometers w/ 0.1 nm precision.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -357,7 +386,7 @@ Varia.status_messages.</p>
 </table>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p class="linemarker linemarker-24"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a></p>
+<dd class="field-odd"><p class="linemarker linemarker-24"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>

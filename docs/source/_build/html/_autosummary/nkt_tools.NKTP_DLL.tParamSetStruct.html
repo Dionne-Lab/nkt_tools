@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nkt_tools.NKTP_DLL.tParamSetStruct &mdash; nkt_tools 0.0.1 documentation</title>
+  <title>nkt_tools.NKTP_DLL.tParamSetStruct &mdash; nkt_tools 0.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,7 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="nkt_tools.extreme" href="nkt_tools.extreme.html" />
+    <link rel="next" title="nkt_tools.chatgpt_extend_uv" href="nkt_tools.chatgpt_extend_uv.html" />
     <link rel="prev" title="nkt_tools.NKTP_DLL.tDateTimeStruct" href="nkt_tools.NKTP_DLL.tDateTimeStruct.html" /> 
 </head>
 
@@ -33,7 +33,7 @@
             nkt_tools
           </a>
               <div class="version">
-                0.0.1
+                0.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -43,10 +43,17 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_notes.html">Development Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nkt_tools.html">﻿nkt_tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.NKTPDLL.html">nkt_tools.NKTPDLL</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="nkt_tools.NKTP_DLL.html">nkt_tools.NKTP_DLL</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceModeTypes.html">nkt_tools.NKTP_DLL.DeviceModeTypes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nkt_tools.NKTP_DLL.DeviceResultTypes.html">nkt_tools.NKTP_DLL.DeviceResultTypes</a></li>
@@ -138,6 +145,8 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">nkt_tools.NKTP_DLL.tParamSetStruct</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.chatgpt_extend_uv.html">nkt_tools.chatgpt_extend_uv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nkt_tools.chatgpt_select.html">nkt_tools.chatgpt_select</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nkt_tools.extreme.html">nkt_tools.extreme</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nkt_tools.varia.html">nkt_tools.varia</a></li>
 </ul>
@@ -179,6 +188,14 @@
 <dt class="sig sig-object py" id="nkt_tools.NKTP_DLL.tParamSetStruct">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nkt_tools.NKTP_DLL.</span></span><span class="sig-name descname"><span class="pre">tParamSetStruct</span></span><a class="headerlink" href="#nkt_tools.NKTP_DLL.tParamSetStruct" title="Permalink to this definition"></a></dt>
 <dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Structure</span></code></p>
+<dl class="simple">
+<dt>tParamSetStruct, The ParameterSet struct</dt><dd><ul class="simple">
+<li><p class="linemarker linemarker-2">note How calculation on parametersets is done internally by modules:</p></li>
+<li><p class="linemarker linemarker-4">DAC_value = (value * (X/Y)) + Offset; Where value is either StartVal or FactoryVal</p></li>
+<li><p class="linemarker linemarker-6">value = (ADC_value * (X/Y)) + Offset; Where value often is available via another measurement register</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="nkt_tools.NKTP_DLL.tParamSetStruct.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nkt_tools.NKTP_DLL.tParamSetStruct.__init__" title="Permalink to this definition"></a></dt>
@@ -230,7 +247,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="nkt_tools.NKTP_DLL.tDateTimeStruct.html" class="btn btn-neutral float-left" title="nkt_tools.NKTP_DLL.tDateTimeStruct" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nkt_tools.extreme.html" class="btn btn-neutral float-right" title="nkt_tools.extreme" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nkt_tools.chatgpt_extend_uv.html" class="btn btn-neutral float-right" title="nkt_tools.chatgpt_extend_uv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to nkt_tools’s documentation! &mdash; nkt_tools 0.0.1 documentation</title>
+  <title>Welcome to nkt_tools’s documentation! &mdash; nkt_tools 0.0.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             nkt_tools
           </a>
               <div class="version">
-                0.0.1
+                0.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -42,7 +42,13 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_notes.html">Development Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
@@ -84,22 +90,77 @@
 <span class="n">laser</span><span class="o">.</span><span class="n">set_emission</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+<p class="linemarker linemarker-23"><a class="reference internal" href="_autosummary/nkt_tools.html#module-nkt_tools" title="nkt_tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools</span></code></a> is a wrapper around NKT’s DLL to provide object oriented interaction with NKT products. NKT Extreme/Fianium lasers and the Varia system are currently supported. Additional systems can be accessed through the DLL by using the registerRead/Write functions within <a class="reference internal" href="_autosummary/nkt_tools.NKTP_DLL.html#module-nkt_tools.NKTP_DLL" title="nkt_tools.NKTP_DLL"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.NKTP_DLL</span></code></a> or interested developers can write new modules by following the <a class="reference internal" href="development_notes.html"><span class="doc">development notes</span></a> provided.</p>
+<p class="linemarker linemarker-25"><strong>GitHub Page:</strong>
+<a class="reference external" href="https://github.com/Dionne-Lab/nkt_tools">https://github.com/Dionne-Lab/nkt_tools</a></p>
+<p class="linemarker linemarker-28"><strong>PyPI Page:</strong>
+<a class="reference external" href="https://pypi.org/project/nkt-tools/">https://pypi.org/project/nkt-tools/</a></p>
+<p class="linemarker linemarker-31">Please also check out my related package, CataLight, which automates data collection and processing for photocatalysis research!</p>
+<p class="linemarker linemarker-33"><strong>ReadtheDocs Page:</strong>
+<a class="reference external" href="https://catalight.readthedocs.io/en/latest/">https://catalight.readthedocs.io/en/latest/</a></p>
+<p class="linemarker linemarker-36"><strong>PyPI Page:</strong>
+<a class="reference external" href="https://pypi.org/project/catalight/">https://pypi.org/project/catalight/</a></p>
+<section id="citing">
+<h2>Citing<a class="headerlink" href="#citing" title="Permalink to this heading"></a></h2>
+<a class="reference external image-reference" href="https://zenodo.org/badge/latestdoi/629268582"><img alt="https://zenodo.org/badge/629268582.svg" src="https://zenodo.org/badge/629268582.svg" /></a>
+<p class="linemarker linemarker-45">If you utilize the nkt_tools package for you research, we’d appreciate you referencing our Zenodo upload such that others might find our work:</p>
+<p class="linemarker linemarker-47">Briley Bourgeois, &amp; Jennifer Dionne. (2023). Dionne-Lab/nkt_tools: 0.0.8 (0.0.8). Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.8145215">https://doi.org/10.5281/zenodo.8145215</a></p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#extreme-fianium">Extreme/Fianium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#varia">Varia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#other-nkt-devices">Other NKT devices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#extreme-fianium">Extreme/Fianium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#varia">Varia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#use-in-a-qt-gui">Use in a Qt GUI:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development_notes.html">Development Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development_notes.html#downloading-the-software-development-kit-sdk">Downloading the Software Development Kit (SDK)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_notes.html#communication-through-telegrams">Communication Through Telegrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_notes.html#communcation-through-the-dll">Communcation Through the DLL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_notes.html#writing-nkt-tools">Writing nkt_tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development_notes.html#importing-the-dll">Importing the DLL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development_notes.html#autosearching-for-equipment">Autosearching for equipment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development_notes.html#writing-equipment-control-methods">Writing equipment control methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_autosummary/nkt_tools.html">﻿nkt_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/nkt_tools.html">﻿nkt_tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/nkt_tools.NKTPDLL.html">nkt_tools.NKTPDLL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/nkt_tools.NKTP_DLL.html">nkt_tools.NKTP_DLL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/nkt_tools.chatgpt_extend_uv.html">nkt_tools.chatgpt_extend_uv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/nkt_tools.chatgpt_select.html">nkt_tools.chatgpt_select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/nkt_tools.extreme.html">nkt_tools.extreme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/nkt_tools.varia.html">nkt_tools.varia</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
+</section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
 <ul class="simple">
-<li><p class="linemarker linemarker-33"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p class="linemarker linemarker-34"><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p class="linemarker linemarker-35"><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p class="linemarker linemarker-68"><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p class="linemarker linemarker-69"><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p class="linemarker linemarker-70"><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </section>
 

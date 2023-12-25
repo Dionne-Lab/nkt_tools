@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Development Notes &mdash; nkt_tools 0.0.1 documentation</title>
+  <title>Development Notes &mdash; nkt_tools 0.0.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             nkt_tools
           </a>
               <div class="version">
-                0.0.1
+                0.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -43,7 +43,27 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#downloading-the-software-development-kit-sdk">Downloading the Software Development Kit (SDK)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#communication-through-telegrams">Communication Through Telegrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#communcation-through-the-dll">Communcation Through the DLL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-nkt-tools">Writing nkt_tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#importing-the-dll">Importing the DLL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autosearching-for-equipment">Autosearching for equipment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-equipment-control-methods">Writing equipment control methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-i-tried-chatgpt-to-automatically-write-other-nkt-modules">How I Tried ChatGPT to Automatically Write Other NKT Modules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
@@ -256,8 +276,8 @@
 <ol class="arabic simple">
 <li><p class="linemarker linemarker-210">I realized quickly that ChatGPT puts a limit on the number of lines of text that can be sent at once. I utilized a <a class="reference external" href="https://chatgpt-prompt-splitter.jjdiaz.dev/">prompt text splitter</a> to split my requests into 47 seperate prompt, which I then copied and pasted into chatGPT.</p></li>
 <li><p class="linemarker linemarker-211">I sent ChatGPT the manual entries in the DLL instruction manual for the extreme/varia followed by my python code. I saved the entry in the repository (<a class="reference download internal" download="" href="_downloads/3fd197741938cf22c551694f8aca3d6f/chatgpt_auto_nkt_tools_prompt.docx"><code class="xref download docutils literal notranslate"><span class="pre">chatgpt_auto_nkt_tools_prompt.docx</span></code></a>).</p></li>
-<li><p class="linemarker linemarker-212">ChatGPT next output a fairly reasonable python file (<code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.chatgpt_select</span></code>). Without demoing this module on a real system, it appears that it may function correctly.</p></li>
-<li><p class="linemarker linemarker-213">I next sent the manual entry for the NKT Extend UV tool and chatGPT produced the <code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.chatgpt_extend_uv</span></code> module. This version was messier than the orginal output for the Select, and I found chatGPT was producing a lot of style and format variation between modules. For this reason, I stopped trying to create these AI built modules.</p></li>
+<li><p class="linemarker linemarker-212">ChatGPT next output a fairly reasonable python file (<a class="reference internal" href="_autosummary/nkt_tools.chatgpt_select.html#module-nkt_tools.chatgpt_select" title="nkt_tools.chatgpt_select"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.chatgpt_select</span></code></a>). Without demoing this module on a real system, it appears that it may function correctly.</p></li>
+<li><p class="linemarker linemarker-213">I next sent the manual entry for the NKT Extend UV tool and chatGPT produced the <a class="reference internal" href="_autosummary/nkt_tools.chatgpt_extend_uv.html#module-nkt_tools.chatgpt_extend_uv" title="nkt_tools.chatgpt_extend_uv"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nkt_tools.chatgpt_extend_uv</span></code></a> module. This version was messier than the orginal output for the Select, and I found chatGPT was producing a lot of style and format variation between modules. For this reason, I stopped trying to create these AI built modules.</p></li>
 <li><p class="linemarker linemarker-214">I saved both AI built modules (Select and Extend UV) with the prefix “chatgpt” so so future users will know the modules were AI generated, but could try to use them as starting points if they’d like to.</p></li>
 </ol>
 </section>

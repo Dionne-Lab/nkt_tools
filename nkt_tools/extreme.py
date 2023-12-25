@@ -57,6 +57,12 @@ class Extreme:
         4: 'External feedback mode (Power Lock)'
             }
 
+    max_comm_tries = 3
+    """
+    `int`, optional : Number of attempts to make before aborting.
+    The default is 3.
+    """
+
     def __init__(self, portname=None):
         """
         Searches for connected NKT lasers and defines instrument parameters.
@@ -192,9 +198,14 @@ class Extreme:
             Inlet temperature w/ 0.1 C precision.
         """
         register_address = 0x11
-        comm_result, value = nkt.registerReadS16(self.portname,
-                                                 self.module_address,
-                                                 register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, value = nkt.registerReadS16(self.portname,
+                                                     self.module_address,
+                                                     register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error reading inlet temperature, retrying...')
         self._inlet_temperature = value / 10
         return self._inlet_temperature
 
@@ -211,9 +222,14 @@ class Extreme:
             True = emission off; False = emission on
         """
         register_address = 0x30
-        comm_result, value = nkt.registerReadU8(self.portname,
-                                                self.module_address,
-                                                register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, value = nkt.registerReadU8(self.portname,
+                                                    self.module_address,
+                                                    register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error in reading emission state, retrying...')
         if value == 3:
             self._emission_state = True
         elif value == 0:
@@ -238,9 +254,15 @@ class Extreme:
             Current setup status of laser based on manual values.
         """
         register_address = 0x16
-        comm_result, setup_key = nkt.registerReadU8(self.portname,
-                                                    self.module_address,
-                                                    register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, setup_key = nkt.registerReadU8(self.portname,
+                                                        self.module_address,
+                                                        register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error in reading setup status, retrying...')
+
         self._setup_status = Extreme.setup_options[setup_key]
         return self._setup_status
 
@@ -279,9 +301,14 @@ class Extreme:
             (LSB, Desription) returns result according to table in manual.
         """
         register_address = 0x32
-        comm_result, reading = nkt.registerRead(self.portname,
-                                                self.module_address,
-                                                register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, reading = nkt.registerRead(self.portname,
+                                                    self.module_address,
+                                                    register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error checking interlock, retrying...')
 
         LSB = reading[0]  # What manual calls first byte
         MSB = reading[1]  # What manual calls second byte
@@ -323,9 +350,14 @@ class Extreme:
             Pulse picker divide ratio
         """
         register_address = 0x34
-        comm_result, ratio = nkt.registerReadU16(self.portname,
-                                                 self.module_address,
-                                                 register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, ratio = nkt.registerReadU16(self.portname,
+                                                     self.module_address,
+                                                     register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error reading pulse picker, retrying...')
         self._pulse_picker_ratio = ratio
         return self._pulse_picker_ratio
 
@@ -347,9 +379,14 @@ class Extreme:
             Pulse picker divide ratio
         """
         register_address = 0x36
-        comm_result, interval = nkt.registerReadU8(self.portname,
-                                                   self.module_address,
-                                                   register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, interval = nkt.registerReadU8(self.portname,
+                                                       self.module_address,
+                                                       register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error reading watchdog interval, retrying...')
         self._watchdog_interval = interval
         return self._watchdog_interval
 
@@ -366,9 +403,15 @@ class Extreme:
             Power level setpoint in percent w/ 0.1% precision.
         """
         register_address = 0x37
-        comm_result, power = nkt.registerReadU16(self.portname,
-                                                 self.module_address,
-                                                 register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, power = nkt.registerReadU16(self.portname,
+                                                     self.module_address,
+                                                     register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error reading power level, retrying...')
+
         self._power_level = power / 10
         return self._power_level
 
@@ -385,9 +428,14 @@ class Extreme:
             Current level setpoint in percent w/ 0.1% precision.
         """
         register_address = 0x38
-        comm_result, current = nkt.registerReadU16(self.portname,
-                                                   self.module_address,
-                                                   register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, current = nkt.registerReadU16(self.portname,
+                                                       self.module_address,
+                                                       register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error reading current level, retrying...')
         self._current_level = current / 10
         return self._current_level
 
@@ -411,9 +459,15 @@ class Extreme:
         """
         register_address = 0x38
         step = 9e-12  # Step size for delay is 9 ps
-        comm_result, delay = nkt.registerReadU16(self.portname,
-                                                self.module_address,
-                                                register_address, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result, delay = nkt.registerReadU16(self.portname,
+                                                    self.module_address,
+                                                    register_address, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error reading nim delay, retrying...')
+
         self._nim_delay = delay * step
         return self._nim_delay
 
@@ -429,12 +483,19 @@ class Extreme:
             True turns laser on, false turns emission off
         """
         register_address = 0x30
-        if state is True:
-            nkt.registerWriteU8(self.portname, self.module_address,
-                                register_address, 0x03, -1)
-        elif state is False:
-            nkt.registerWriteU8(self.portname, self.module_address,
-                                register_address, 0x00, -1)
+        for attempt in range(self.max_comm_tries):
+            if state is True:
+                comm_result = nkt.registerWriteU8(self.portname,
+                                                  self.module_address,
+                                                  register_address, 0x03, -1)
+            elif state is False:
+                comm_result = nkt.registerWriteU8(self.portname,
+                                                  self.module_address,
+                                                  register_address, 0x00, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error setting emission state, retrying...')
 
     def set_mode(self, setup_key):
         """
@@ -463,8 +524,16 @@ class Extreme:
         """
         register_address = 0x16
         if setup_key in Extreme.setup_options.keys():
-            nkt.registerWriteU8(self.portname, self.module_address,
-                                register_address, setup_key, -1)
+            for attempt in range(self.max_comm_tries):
+                comm_result = nkt.registerWriteU8(self.portname,
+                                                  self.module_address,
+                                                  register_address,
+                                                  setup_key, -1)
+                if comm_result == 0:
+                    break
+                else:
+                    print('Comm error setting mode, retrying...')
+
             print('Mode set to: ', self.setup_status)
         else:
             print('Warning: Invalid Key Provided')
@@ -493,8 +562,14 @@ class Extreme:
             value = 1
         else:
             value = 0
-        nkt.registerWriteU8(self.portname, self.module_address,
-                            register_address, value, -1)
+        for attempt in range(self.max_comm_tries):
+            comm_result = nkt.registerWriteU8(self.portname,
+                                              self.module_address,
+                                              register_address, value, -1)
+            if comm_result == 0:
+                break
+            else:
+                print('Comm error setting interlock, retrying...')
 
     def set_pulse_picker_ratio(self, ratio):
         """
@@ -512,8 +587,14 @@ class Extreme:
         """
         register_address = 0x34
         if type(ratio) is int:
-            nkt.registerWriteU16(self.portname, self.module_address,
-                                 register_address, ratio, -1)
+            for attempt in range(self.max_comm_tries):
+                comm_result = nkt.registerWriteU16(self.portname,
+                                                   self.module_address,
+                                                   register_address, ratio, -1)
+                if comm_result == 0:
+                    break
+                else:
+                    print('Comm error setting pulse picker, retrying...')
         else:
             raise ValueError('ratios needs to be int')
 
@@ -535,8 +616,15 @@ class Extreme:
         """
         register_address = 0x36
         if type(timeout) is int:
-            nkt.registerWriteU8(self.portname, self.module_address,
-                                register_address, timeout, -1)
+            for attempt in range(self.max_comm_tries):
+                comm_result = nkt.registerWriteU8(self.portname,
+                                                  self.module_address,
+                                                  register_address,
+                                                  timeout, -1)
+                if comm_result == 0:
+                    break
+                else:
+                    print('Comm error setting watchdog interval, retrying...')
         else:
             raise ValueError('timeout needs to be int')
 
@@ -554,8 +642,15 @@ class Extreme:
         register_address = 0x37
         setpoint = int(power * 10)
         if (power >= 0) and (power <= 100):
-            nkt.registerWriteU16(self.portname, self.module_address,
-                                 register_address, setpoint, -1)
+            for attempt in range(self.max_comm_tries):
+                comm_result = nkt.registerWriteU16(self.portname,
+                                                   self.module_address,
+                                                   register_address,
+                                                   setpoint, -1)
+                if comm_result == 0:
+                    break
+                else:
+                    print('Comm error setting power, retrying...')
         else:
             self.set_emission(False)
             self.set_power(0)
@@ -576,8 +671,15 @@ class Extreme:
         register_address = 0x38
         setpoint = int(current*10)
         if (current >= 0) and (current <= 100):
-            nkt.registerWriteU16(self.portname, self.module_address,
-                                 register_address, setpoint, -1)
+            for attempt in range(self.max_comm_tries):
+                comm_result = nkt.registerWriteU16(self.portname,
+                                                   self.module_address,
+                                                   register_address,
+                                                   setpoint, -1)
+                if comm_result == 0:
+                    break
+                else:
+                    print('Comm error setting current level, retrying...')
         else:
             self.set_emission(False)
             self.set_current(0)
@@ -606,8 +708,15 @@ class Extreme:
         step = 9e-12  # Step size for delay is 9 ps
         int_delay = int(nim_delay/step)
         if (int_delay >= 0) and (int_delay <= 1023):
-            nkt.registerWriteU16(self.portname, self.module_address,
-                                 register_address, int_delay, -1)
+            for attempt in range(self.max_comm_tries):
+                comm_result = nkt.registerWriteU16(self.portname,
+                                                   self.module_address,
+                                                   register_address,
+                                                   int_delay, -1)
+                if comm_result == 0:
+                    break
+                else:
+                    print('Comm error setting NIM delay, retrying...')
         else:
             print('NIM Delay Value Out of Range (0 <= Delay <= 9.207e-9)')
 

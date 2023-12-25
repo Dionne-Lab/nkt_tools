@@ -1,4 +1,4 @@
-nkt\_tools.extreme.Extreme
+﻿nkt\_tools.extreme.Extreme
 ==========================
 
 .. currentmodule:: nkt_tools.extreme
@@ -40,6 +40,7 @@ nkt\_tools.extreme.Extreme
       ~Extreme.emission_state
       ~Extreme.inlet_temperature
       ~Extreme.interlock_status
+      ~Extreme.max_comm_tries
       ~Extreme.module_address
       ~Extreme.nim_delay
       ~Extreme.portname
